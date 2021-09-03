@@ -12,7 +12,11 @@
   "author": "Israel Antezana",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.15.4",
+    "@babel/preset-env": "^7.15.4",
+    "babel-jest": "^27.1.0",
     "jest": "^27.1.0",
+    "parcel": "^2.0.0-rc.0",
     "parcel-bundler": "^1.12.5"
   }
 }
