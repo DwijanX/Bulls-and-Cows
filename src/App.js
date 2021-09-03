@@ -1,1 +1,5 @@
-alert("Hola desde Javascript");
+function sumar(a, b) {
+  return a + b;
+}
+
+export default sumar;

@@ -1,15 +1,15 @@
 {
-  "name": "parcelbase",
+  "name": "parcel-jest-base",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "test": "jest",
-    "test-watch": "jest --watch"
+    "test": "jest --watch",
+    "test-once": "jest"
   },
-  "author": "Israel Antezana",
+  "author": "Israel Antezana R.",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.15.4",
