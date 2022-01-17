@@ -16,7 +16,6 @@
     "@babel/preset-env": "^7.16.8",
     "babel-jest": "^27.4.6",
     "jest": "^27.4.7",
-    "parcel": "^2.2.0",
-    "parcel-bundler": "^1.12.5"
+    "parcel": "^2.2.0"
   }
 }
