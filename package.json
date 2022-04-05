@@ -5,9 +5,9 @@
   "default": "index.html",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html",
+    "build": "parcel build index.html --public-url ./",
     "test": "jest --watch",
-    "test-once": "jest"
+    "test-once": "jest --verbose --coverage"
   },
   "author": "Israel Antezana R.",
   "license": "ISC",
