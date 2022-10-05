@@ -22,5 +22,14 @@ class CowsAndBulls
      {
         return this.currentTurn
      }
+
+     guessSecretCode(code)
+     {
+        if(code == this.secretCode)
+        {
+            return true
+        }
+        return false
+     }
 }
 export default CowsAndBulls

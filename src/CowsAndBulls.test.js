@@ -22,3 +22,14 @@ describe("Pruebas del codigo secreto",()=>{
 
     })
 })
+
+describe("Pruebas de respuesta tras adivinar",()=>{
+    let cowsAndBullsObj;
+    beforeEach(()=>{
+        cowsAndBullsObj=new CowsAndBulls()
+    })
+    it("Prueba si el codigo es incorrecto",()=>{
+        cowsAndBullsObj.saveSecretCode(1425)
+        expect(cowsAndBullsObj.guessSecretCode(1000)).toEqual(false);
+    })
+})
