@@ -1,4 +1,6 @@
-import {swapPlayersTurn,saveSecretCode} from "./CowsAndBulls.js";
+import CowsAndBulls from "./CowsAndBulls.js";
+
+const cowsAndBullsObj = new CowsAndBulls()
 
 const code = document.querySelector("#code");
 const saveButton = document.querySelector("#saveButton");
@@ -25,7 +27,7 @@ saveButton.addEventListener("click", (event) => {
       item.style.display="flex"
     })
     const codeNumber = Number.parseInt(code.value);
-    swapPlayersTurn()
-    saveSecretCode(codeNumber)
+    cowsAndBullsObj.swapPlayersTurn()
+    cowsAndBullsObj.saveSecretCode(codeNumber)
 
   })
