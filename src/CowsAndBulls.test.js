@@ -1,15 +1,24 @@
-import {saveSecretCode,getSecretCode,getCurrentTurn,swapPlayersTurn} from "./CowsAndBulls.js";
+import CowsAndBulls from "./CowsAndBulls";
+
 
 describe("Pruebas de turnos", () => {
+    let cowsAndBullsObj;
+    beforeEach(()=>{
+        cowsAndBullsObj=new CowsAndBulls()
+    })
   it("deberia cambiar el turno de 1 a 2", () => {
-    swapPlayersTurn()
-    expect(getCurrentTurn()).toEqual(2);
+    cowsAndBullsObj.swapPlayersTurn()
+    expect(cowsAndBullsObj.getCurrentTurn()).toEqual(2);
   });
 });
 describe("Pruebas del codigo secreto",()=>{
+    let cowsAndBullsObj;
+    beforeEach(()=>{
+        cowsAndBullsObj=new CowsAndBulls()
+    })
     it("Prueba para guardar el codigo secreto",()=>{
-        saveSecretCode(1425)
-        expect(getSecretCode()).toEqual(1425);
+        cowsAndBullsObj.saveSecretCode(1425)
+        expect(cowsAndBullsObj.getSecretCode()).toEqual(1425);
 
     })
 })

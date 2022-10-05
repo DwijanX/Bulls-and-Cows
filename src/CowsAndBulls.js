@@ -1,26 +1,26 @@
-let turno=1
-let secretCode
-function saveSecretCode(code)
+class CowsAndBulls
 {
-    secretCode=code
+     constructor()
+     {
+        this.currentTurn=1
+        this.secretCode
+     }
+     saveSecretCode(code)
+     {
+        this.secretCode=code
+     }
+     getSecretCode()
+     {
+        return this.secretCode
+     }
+     swapPlayersTurn()
+     {
+        if(this.currentTurn==1) this.currentTurn=2
+        else this.currentTurn=1
+     }
+     getCurrentTurn()
+     {
+        return this.currentTurn
+     }
 }
-function getSecretCode()
-{
-    return secretCode
-}
-function swapPlayersTurn()
-{
-    if(turno==1)
-    {
-        turno=2
-    }
-    else
-    {
-        turno=1
-    }
-}
-function getCurrentTurn()
-{
-    return turno
-}
-export {saveSecretCode,getSecretCode,getCurrentTurn,swapPlayersTurn}
+export default CowsAndBulls
