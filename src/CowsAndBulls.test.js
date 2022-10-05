@@ -1,4 +1,4 @@
-import CowsAndBulls from "./CowsAndBulls";
+import CowsAndBulls from "./CowsAndBulls.js";
 
 
 describe("Pruebas de turnos", () => {
@@ -9,6 +9,11 @@ describe("Pruebas de turnos", () => {
   it("deberia cambiar el turno de 1 a 2", () => {
     cowsAndBullsObj.swapPlayersTurn()
     expect(cowsAndBullsObj.getCurrentTurn()).toEqual(2);
+  });
+  it("deberia cambiar el turno de 1 a 2 y luego de 2 a 1", () => {
+    cowsAndBullsObj.swapPlayersTurn()
+    cowsAndBullsObj.swapPlayersTurn()
+    expect(cowsAndBullsObj.getCurrentTurn()).toEqual(1);
   });
 });
 describe("Pruebas del codigo secreto",()=>{
@@ -34,5 +39,13 @@ describe("Pruebas de respuesta tras adivinar",()=>{
     })
     it("Prueba si el codigo es correcto",()=>{
         expect(cowsAndBullsObj.guessSecretCode(1425)).toEqual(true);
+    })
+    it("Prueba 1 de la cantidad de vacas que devuelve",()=>{
+        cowsAndBullsObj.saveSecretCode(1236)
+        expect(cowsAndBullsObj.getCowsCharacters(1425)).toEqual("!!");
+    })
+    it("Prueba 2 de la cantidad de vacas que devuelve",()=>{
+        cowsAndBullsObj.saveSecretCode(1124)
+        expect(cowsAndBullsObj.getCowsCharacters(1425)).toEqual("!!!");
     })
 })

@@ -22,14 +22,23 @@ class CowsAndBulls
      {
         return this.currentTurn
      }
-
      guessSecretCode(code)
      {
-        if(code == this.secretCode)
-        {
-            return true
-        }
-        return false
+        return code == this.secretCode
+     }
+     getCowsCharacters(code)
+     {
+         let guessingCodeString=String(code)
+         let secretCodeArray=String(this.secretCode);
+         let cowsCharacters=""
+         for(let index=0;index<guessingCodeString.length;index++)
+         {
+            if(secretCodeArray.includes(guessingCodeString[index]))
+            {
+               cowsCharacters+="!"
+            }
+         }
+         return cowsCharacters
      }
 }
 export default CowsAndBulls

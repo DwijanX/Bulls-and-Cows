@@ -41,7 +41,15 @@ saveButton.addEventListener("click", (event) => {
     let valueIfCodeCondition = "<p>lo lograste!, el codigo que ingresaste es el correcto<p>"
     if(!cowsAndBullsObj.guessSecretCode(codeNumber))
     {
-      valueIfCodeCondition = "<p>el codigo que ingreso no es el correcto<p>"
+      let cowsStr=cowsAndBullsObj.getCowsCharacters(codeNumber)
+      if (cowsStr=="")
+      {
+        cowsStr=="0"
+      }
+      valueIfCodeCondition = "<p>el codigo que ingreso no es el correcto</p>"
+      valueIfCodeCondition+="<p>Obtuviste: "+cowsStr+" vacas</p>"
+
     }
+
     guessString.innerHTML = valueIfCodeCondition;
   })
