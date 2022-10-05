@@ -13,6 +13,29 @@ const itemsToGuessCode = document.querySelectorAll(".itemsToGuessCode");
 let codeString = document.querySelector("#codeString");
 let guessString = document.querySelector("#guessString");
 
+function changeItemsDisplay(Items,displayMode)
+{
+  Items.forEach((item)=>{
+    item.style.display=displayMode
+  })
+}
+function getGuessAnswer()
+{
+  const codeNumber = Number.parseInt(codeTry.value);
+  let guessAnswer = "<p>lo lograste!, el codigo que ingresaste es el correcto<p>"
+  if(!cowsAndBullsObj.guessSecretCode(codeNumber))
+  {
+    let cowsStr=cowsAndBullsObj.getCowsCharacters(codeNumber)
+    if (cowsStr=="")
+    {
+      cowsStr=="0"
+    }
+    guessAnswer = "<p>el codigo que ingreso no es el correcto</p>"
+    guessAnswer+="<p>Obtuviste: "+cowsStr+" vacas</p>"
+  }
+  return guessAnswer
+}
+
 saveButton.addEventListener("click", (event) => {
     event.preventDefault();
   
@@ -24,32 +47,16 @@ saveButton.addEventListener("click", (event) => {
   
   startButton.addEventListener("click",(event)=>{
     event.preventDefault();
-    SecretCodeInputClass.forEach((item)=>{
-      item.style.display="none"
-    })
-    itemsToGuessCode.forEach((item)=>{
-      item.style.display="flex"
-    })
+    changeItemsDisplay(SecretCodeInputClass,"none")
+    changeItemsDisplay(itemsToGuessCode,"flex")
+
     const codeNumber = Number.parseInt(code.value);
     cowsAndBullsObj.swapPlayersTurn()
     cowsAndBullsObj.saveSecretCode(codeNumber)
   })
 
+
   guessButton.addEventListener("click",(event)=>{
     event.preventDefault();
-    const codeNumber = Number.parseInt(codeTry.value);
-    let valueIfCodeCondition = "<p>lo lograste!, el codigo que ingresaste es el correcto<p>"
-    if(!cowsAndBullsObj.guessSecretCode(codeNumber))
-    {
-      let cowsStr=cowsAndBullsObj.getCowsCharacters(codeNumber)
-      if (cowsStr=="")
-      {
-        cowsStr=="0"
-      }
-      valueIfCodeCondition = "<p>el codigo que ingreso no es el correcto</p>"
-      valueIfCodeCondition+="<p>Obtuviste: "+cowsStr+" vacas</p>"
-
-    }
-
-    guessString.innerHTML = valueIfCodeCondition;
+    guessString.innerHTML = getGuessAnswer();
   })
