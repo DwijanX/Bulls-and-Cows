@@ -27,9 +27,12 @@ describe("Pruebas de respuesta tras adivinar",()=>{
     let cowsAndBullsObj;
     beforeEach(()=>{
         cowsAndBullsObj=new CowsAndBulls()
+        cowsAndBullsObj.saveSecretCode(1425)
     })
     it("Prueba si el codigo es incorrecto",()=>{
-        cowsAndBullsObj.saveSecretCode(1425)
         expect(cowsAndBullsObj.guessSecretCode(1000)).toEqual(false);
+    })
+    it("Prueba si el codigo es correcto",()=>{
+        expect(cowsAndBullsObj.guessSecretCode(1425)).toEqual(true);
     })
 })
