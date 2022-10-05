@@ -5,15 +5,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cows and Bulls</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <h1>Toros y vacas: V1.0.0</h1>
-  <label for="code">ingresa el codigo secreto</label>
-  <input type="number" id="code" />
-  <button id="startButton">guardar</button>
-  <div id="codeString"></div>
-  <button id="confirmButton" style="display: none;">confirmar</button>
-
+  <label class="SecretCodeInputClass" for="code">ingresa el codigo secreto</label>
+  <input class="SecretCodeInputClass" type="number" id="code" />
+  <button class="SecretCodeInputClass" id="saveButton">guardar</button>
+  <div class="SecretCodeInputClass" id="codeString"></div>
+  <button class="SecretCodeInputClass" id="startButton" style="display: none;">Start</button>
   <script type="module" src="./src/presenter.js"></script>
+  <label class="itemsToGuessCode" for="code">ingresa tu intento de adivinar</label>
+  <input class="itemsToGuessCode" type="number" id="code" />
+  <button class="itemsToGuessCode" >Adivinar</button>
+
 </body>
 </html>
