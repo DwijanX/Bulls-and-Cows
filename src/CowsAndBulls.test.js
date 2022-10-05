@@ -48,4 +48,7 @@ describe("Pruebas de respuesta tras adivinar",()=>{
         cowsAndBullsObj.saveSecretCode(1124)
         expect(cowsAndBullsObj.getCowsCharacters(1425)).toEqual("!!!");
     })
+    it("Probando que la cantidad de vacas sea correcta con numeros repetidos en el intento",()=>{
+        expect(cowsAndBullsObj.getCowsCharacters(1125)).toEqual("!!!");
+    })
 })

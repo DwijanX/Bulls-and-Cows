@@ -29,13 +29,14 @@ class CowsAndBulls
      getCowsCharacters(code)
      {
          let guessingCodeString=String(code)
-         let secretCodeArray=String(this.secretCode);
+         let secretCodeString=String(this.secretCode);
          let cowsCharacters=""
          for(let index=0;index<guessingCodeString.length;index++)
          {
-            if(secretCodeArray.includes(guessingCodeString[index]))
+            if(secretCodeString.includes(guessingCodeString[index]))
             {
                cowsCharacters+="!"
+               secretCodeString=secretCodeString.replace(guessingCodeString[index],"")
             }
          }
          return cowsCharacters
