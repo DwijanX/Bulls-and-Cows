@@ -41,5 +41,20 @@ class CowsAndBulls
          }
          return cowsCharacters
      }
+     getBullCharacters(code)
+     {
+         let guessingCodeString=String(code)
+         let secretCodeString=String(this.secretCode);
+         let cowsCharacters=""
+         for(let index=0;index<guessingCodeString.length;index++)
+         {
+            if(secretCodeString.includes(guessingCodeString[index]) && secretCodeString[index] == guessingCodeString[index])
+            {
+               cowsCharacters+="*"
+               secretCodeString=secretCodeString.replace(guessingCodeString[index],"")
+            }
+         }
+         return cowsCharacters
+     }
 }
 export default CowsAndBulls
