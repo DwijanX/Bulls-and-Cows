@@ -5,7 +5,11 @@ class CowsAndBulls
         this.currentTurn=1
         this.secretCode
         this.lifes=8
-        this.codeLength = 4
+        this.codeLength=4
+     }
+     setCodeLength(length)
+     {
+      this.codeLength=length
      }
      saveSecretCode(code)
      {

@@ -11,9 +11,10 @@ const SecretCodeInputClass = document.querySelectorAll(".SecretCodeInputClass");
 const itemsToGuessCode = document.querySelectorAll(".itemsToGuessCode");
 const LifesValue = document.querySelector("#LifesValue");
 const inputsArray = document.querySelectorAll("input")
+const codeLengthInput = document.querySelector("#codeLengthInput")
 
 
-let maxLengthValue;
+
 let codeString = document.querySelector("#codeString");
 let guessString = document.querySelector("#guessString");
 
@@ -68,6 +69,7 @@ saveButton.addEventListener("click", (event) => {
   
     const codeNumber = Number.parseInt(code.value);
 
+    codeLengthInput.style.display="none"
     codeString.innerHTML = "<p>la clave secreta es: "+codeNumber + ", estas listo para empezar?" + "</p>";
     startButton.style.display = 'flex';
   });
@@ -76,7 +78,6 @@ saveButton.addEventListener("click", (event) => {
     event.preventDefault();
     changeItemsDisplay(SecretCodeInputClass,"none")
     changeItemsDisplay(itemsToGuessCode,"flex")
-
     const codeNumber = Number.parseInt(code.value);
     cowsAndBullsObj.swapPlayersTurn()
     cowsAndBullsObj.saveSecretCode(codeNumber)
@@ -86,6 +87,14 @@ saveButton.addEventListener("click", (event) => {
     event.preventDefault();
     guessString.innerHTML = getGuessAnswerHTML();
     updateLifesHTML()
+  })
+  
+  codeLengthInput.addEventListener("change",(event)=>{
+    
+    cowsAndBullsObj.setCodeLength(parseInt(codeLengthInput.value))
+    inputsArray.forEach((input)=>{
+      input.value=""
+    })
   })
 
 onload = (event) => { 
