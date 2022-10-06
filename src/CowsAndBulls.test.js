@@ -52,3 +52,13 @@ describe("Pruebas de respuesta tras adivinar",()=>{
         expect(cowsAndBullsObj.getCowsCharacters(1125)).toEqual("!!!");
     })
 })
+
+describe("Pruebas de las vidas del juego",()=>{
+    let cowsAndBullsObj;
+    beforeEach(()=>{
+        cowsAndBullsObj=new CowsAndBulls()
+    })
+    it("Obteniendo la cantidad de vidas por defecto",()=>{
+        expect(cowsAndBullsObj.getLifesRemaining()).toEqual(8);
+    })
+})

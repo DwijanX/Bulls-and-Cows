@@ -4,6 +4,7 @@ class CowsAndBulls
      {
         this.currentTurn=1
         this.secretCode
+        this.lifes=8
      }
      saveSecretCode(code)
      {
@@ -24,22 +25,27 @@ class CowsAndBulls
      }
      guessSecretCode(code)
      {
-        return code == this.secretCode
+         
+         return code == this.secretCode
      }
      getCowsCharacters(code)
      {
-         let guessingCodeString=String(code)
-         let secretCodeString=String(this.secretCode);
-         let cowsCharacters=""
-         for(let index=0;index<guessingCodeString.length;index++)
+      let guessingCodeString=String(code)
+      let secretCodeString=String(this.secretCode);
+      let cowsCharacters=""
+      for(let index=0;index<guessingCodeString.length;index++)
+      {
+         if(secretCodeString.includes(guessingCodeString[index]))
          {
-            if(secretCodeString.includes(guessingCodeString[index]))
-            {
-               cowsCharacters+="!"
-               secretCodeString=secretCodeString.replace(guessingCodeString[index],"")
-            }
+            cowsCharacters+="!"
+            secretCodeString=secretCodeString.replace(guessingCodeString[index],"")
          }
-         return cowsCharacters
+      }
+      return cowsCharacters
+     }
+     getLifesRemaining()
+     {
+      return this.lifes
      }
 }
 export default CowsAndBulls
