@@ -29,15 +29,20 @@ function changeItemsDisplay(Items,displayMode)
 function getGuessAnswerHTML()
 {
   const codeNumber = Number.parseInt(codeTry.value);
-  let AnswerHTML = "<p>lo lograste!, el codigo que ingresaste es el correcto<p>"
+  let AnswerHTML="";
   if(!cowsAndBullsObj.guessSecretCode(codeNumber))
   {
     AnswerHTML = "<p>el codigo que ingreso no es el correcto</p>"
     AnswerHTML+= "<p>Pista obtenida:"+cowsAndBullsObj.getHintString(codeNumber)+"</p>"
+    if(cowsAndBullsObj.getLifesRemaining()<=0)
+    {
+      AnswerHTML+= "<p>Perdiste el juego, el codigo era: "+cowsAndBullsObj.getSecretCode()+"</p>"
+    }
   }
-  if(cowsAndBullsObj.getLifesRemaining()<=0)
+  else
   {
-    AnswerHTML+= "<p>Perdiste el juego, el codigo era: "+cowsAndBullsObj.getSecretCode()+"</p>"
+    AnswerHTML+= "<p>lo lograste!, el codigo que ingresaste es el correcto<p>"
+    guessButton.style.display="none"
   }
   return AnswerHTML
 }
