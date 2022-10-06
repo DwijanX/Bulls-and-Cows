@@ -61,4 +61,8 @@ describe("Pruebas de las vidas del juego",()=>{
     it("Obteniendo la cantidad de vidas por defecto",()=>{
         expect(cowsAndBullsObj.getLifesRemaining()).toEqual(8);
     })
+    it("Reduciendo la cantidad de vidas con cada intento",()=>{
+        cowsAndBullsObj.guessSecretCode(1000)
+        expect(cowsAndBullsObj.getLifesRemaining()).toEqual(7);
+    })
 })

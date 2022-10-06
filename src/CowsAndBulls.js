@@ -25,7 +25,7 @@ class CowsAndBulls
      }
      guessSecretCode(code)
      {
-         
+         this.lifes-=1
          return code == this.secretCode
      }
      getCowsCharacters(code)
