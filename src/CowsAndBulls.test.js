@@ -55,4 +55,8 @@ describe("Pruebas de respuesta tras adivinar",()=>{
         cowsAndBullsObj.saveSecretCode(1236)
         expect(cowsAndBullsObj.getBullCharacters(1425)).toEqual("!");
     })
+    it("Prueba 2 de la cantidad de toros que devuelve",()=>{
+        cowsAndBullsObj.saveSecretCode(1124)
+        expect(cowsAndBullsObj.getBullCharacters(1624)).toEqual("!!!");
+    })
 })

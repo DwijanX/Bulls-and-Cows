@@ -48,10 +48,9 @@ class CowsAndBulls
          let cowsCharacters=""
          for(let index=0;index<guessingCodeString.length;index++)
          {
-            if(secretCodeString.includes(guessingCodeString[index]) && secretCodeString[index] == guessingCodeString[index])
+            if(secretCodeString[index] == guessingCodeString[index])
             {
                cowsCharacters+="!"
-               secretCodeString=secretCodeString.replace(guessingCodeString[index],"")
             }
          }
          return cowsCharacters
