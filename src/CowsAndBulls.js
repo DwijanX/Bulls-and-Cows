@@ -35,7 +35,7 @@ class CowsAndBulls
          {
             if(secretCodeString.includes(guessingCodeString[index]))
             {
-               cowsCharacters+="!"
+               cowsCharacters+="*"
                secretCodeString=secretCodeString.replace(guessingCodeString[index],"")
             }
          }
@@ -50,7 +50,7 @@ class CowsAndBulls
          {
             if(secretCodeString.includes(guessingCodeString[index]) && secretCodeString[index] == guessingCodeString[index])
             {
-               cowsCharacters+="*"
+               cowsCharacters+="!"
                secretCodeString=secretCodeString.replace(guessingCodeString[index],"")
             }
          }
