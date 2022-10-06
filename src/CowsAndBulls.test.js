@@ -59,4 +59,12 @@ describe("Pruebas de respuesta tras adivinar",()=>{
         cowsAndBullsObj.saveSecretCode(1124)
         expect(cowsAndBullsObj.getBullCharacters(1624)).toEqual("!!!");
     })
+    it("Prueba entre vacas y toros juntos",()=>{
+        cowsAndBullsObj.saveSecretCode(1324)
+        expect(cowsAndBullsObj.getStringFromChars(1623)).toEqual("!!*");
+    })
+    it("Prueba entre vacas y toros juntos 2",()=>{
+        cowsAndBullsObj.saveSecretCode(1325)
+        expect(cowsAndBullsObj.getStringFromChars(7115)).toEqual("!*");
+    })
 })

@@ -55,5 +55,12 @@ class CowsAndBulls
          }
          return cowsCharacters
      }
+
+     getStringFromChars(code)
+     {
+         let bullChar = this.getBullCharacters(code)
+         let cowChar = this.getCowsCharacters(code)
+         return bullChar +  cowChar.substring(bullChar.length)
+     }
 }
 export default CowsAndBulls

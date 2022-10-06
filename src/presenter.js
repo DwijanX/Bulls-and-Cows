@@ -31,7 +31,7 @@ function getGuessAnswer()
       cowsStr=="0"
     }
     guessAnswer = "<p>el codigo que ingreso no es el correcto</p>"
-    guessAnswer+="<p>Obtuviste: "+cowsStr+" vacas</p>"
+    guessAnswer+= cowsAndBullsObj.getStringFromChars(codeNumber)
   }
   return guessAnswer
 }
