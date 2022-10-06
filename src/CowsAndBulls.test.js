@@ -42,14 +42,30 @@ describe("Pruebas de respuesta tras adivinar",()=>{
     })
     it("Prueba 1 de la cantidad de vacas que devuelve",()=>{
         cowsAndBullsObj.saveSecretCode(1236)
-        expect(cowsAndBullsObj.getCowsCharacters(1425)).toEqual("!!");
+        expect(cowsAndBullsObj.getCowCharacters(1425)).toEqual("**");
     })
     it("Prueba 2 de la cantidad de vacas que devuelve",()=>{
         cowsAndBullsObj.saveSecretCode(1124)
-        expect(cowsAndBullsObj.getCowsCharacters(1425)).toEqual("!!!");
+        expect(cowsAndBullsObj.getCowCharacters(1425)).toEqual("***");
     })
     it("Probando que la cantidad de vacas sea correcta con numeros repetidos en el intento",()=>{
-        expect(cowsAndBullsObj.getCowsCharacters(1125)).toEqual("!!!");
+        expect(cowsAndBullsObj.getCowCharacters(1125)).toEqual("***");
+    })
+    it("Prueba 1 de la cantidad de toros",()=>{
+        cowsAndBullsObj.saveSecretCode(1236)
+        expect(cowsAndBullsObj.getBullCharacters(1425)).toEqual("!");
+    })
+    it("Prueba 2 de la cantidad de toros que devuelve",()=>{
+        cowsAndBullsObj.saveSecretCode(1124)
+        expect(cowsAndBullsObj.getBullCharacters(1624)).toEqual("!!!");
+    })
+    it("Prueba entre vacas y toros juntos",()=>{
+        cowsAndBullsObj.saveSecretCode(1324)
+        expect(cowsAndBullsObj.getHintString(1623)).toEqual("!!*");
+    })
+    it("Prueba entre vacas y toros juntos 2",()=>{
+        cowsAndBullsObj.saveSecretCode(1325)
+        expect(cowsAndBullsObj.getHintString(7115)).toEqual("!*");
     })
 })
 
@@ -65,4 +81,5 @@ describe("Pruebas de las vidas del juego",()=>{
         cowsAndBullsObj.guessSecretCode(1000)
         expect(cowsAndBullsObj.getLifesRemaining()).toEqual(7);
     })
+    
 })

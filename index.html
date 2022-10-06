@@ -9,16 +9,23 @@
 </head>
 <body>
   <h1>Toros y vacas: V1.0.0</h1>
-  <label class="SecretCodeInputClass" for="code">ingresa el codigo secreto</label>
-  <input class="SecretCodeInputClass" type="number" id="code" />
-  <button class="SecretCodeInputClass" id="saveButton">guardar</button>
-  <div class="SecretCodeInputClass" id="codeString"></div>
-  <button class="SecretCodeInputClass" id="startButton" style="display: none;">Start</button>
+  <section>
+    <label class="SecretCodeInputClass" for="code">ingresa el codigo secreto</label>
+    <input class="SecretCodeInputClass" type="number" id="code" />
+    <button class="SecretCodeInputClass" id="saveButton">guardar</button>
+    <div class="SecretCodeInputClass" id="codeString"></div>
+    <button class="SecretCodeInputClass" id="startButton" style="display: none;">Start</button>
+  </section>
+  <section>
+    <p class="itemsToGuessCode" id="Lifes">Vidas Restantes:<span id="LifesValue"></span></p>
+    <label class="itemsToGuessCode" for="code">ingresa tu intento de adivinar</label>
+    <input class="itemsToGuessCode" type="number" id="codeTry" />
+    <button class="itemsToGuessCode" id="guessButton">Adivinar</button>
+    <div class="guessingTryAnswer" id="guessString"></div>
+  </section>
+  
+
   <script type="module" src="./src/presenter.js"></script>
-  <label class="itemsToGuessCode" for="code">ingresa tu intento de adivinar</label>
-  <input class="itemsToGuessCode" type="number" id="codeTry" />
-  <button class="itemsToGuessCode" id="guessButton">Adivinar</button>
-  <div class="guessingTryAnswer" id="guessString"></div>
 
 </body>
 </html>

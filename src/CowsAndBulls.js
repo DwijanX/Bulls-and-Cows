@@ -28,7 +28,7 @@ class CowsAndBulls
          this.lifes-=1
          return code == this.secretCode
      }
-     getCowsCharacters(code)
+     getCowCharacters(code)
      {
       let guessingCodeString=String(code)
       let secretCodeString=String(this.secretCode);
@@ -37,8 +37,8 @@ class CowsAndBulls
       {
          if(secretCodeString.includes(guessingCodeString[index]))
          {
-            cowsCharacters+="!"
-            secretCodeString=secretCodeString.replace(guessingCodeString[index],"")
+               cowsCharacters+="*"
+               secretCodeString=secretCodeString.replace(guessingCodeString[index],"")
          }
       }
       return cowsCharacters
@@ -46,6 +46,27 @@ class CowsAndBulls
      getLifesRemaining()
      {
       return this.lifes
+     }
+     getBullCharacters(code)
+     {
+         let guessingCodeString=String(code)
+         let secretCodeString=String(this.secretCode);
+         let cowsCharacters=""
+         for(let index=0;index<guessingCodeString.length;index++)
+         {
+            if(secretCodeString[index] == guessingCodeString[index])
+            {
+               cowsCharacters+="!"
+            }
+         }
+         return cowsCharacters
+     }
+
+     getHintString(code)
+     {
+         let bullChar = this.getBullCharacters(code)
+         let cowChar = this.getCowCharacters(code)
+         return bullChar +  cowChar.substring(bullChar.length)
      }
 }
 export default CowsAndBulls

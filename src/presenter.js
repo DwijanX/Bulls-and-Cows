@@ -9,31 +9,37 @@ const startButton = document.querySelector("#startButton");
 const guessButton = document.querySelector("#guessButton");
 const SecretCodeInputClass = document.querySelectorAll(".SecretCodeInputClass");
 const itemsToGuessCode = document.querySelectorAll(".itemsToGuessCode");
+const LifesValue = document.querySelector("#LifesValue");
+
+
 
 let codeString = document.querySelector("#codeString");
 let guessString = document.querySelector("#guessString");
 
+function updateLifesHTML()
+{
+  LifesValue.innerHTML=cowsAndBullsObj.getLifesRemaining()
+}
 function changeItemsDisplay(Items,displayMode)
 {
   Items.forEach((item)=>{
     item.style.display=displayMode
   })
 }
-function getGuessAnswer()
+function getGuessAnswerHTML()
 {
   const codeNumber = Number.parseInt(codeTry.value);
-  let guessAnswer = "<p>lo lograste!, el codigo que ingresaste es el correcto<p>"
+  let AnswerHTML = "<p>lo lograste!, el codigo que ingresaste es el correcto<p>"
   if(!cowsAndBullsObj.guessSecretCode(codeNumber))
   {
-    let cowsStr=cowsAndBullsObj.getCowsCharacters(codeNumber)
-    if (cowsStr=="")
-    {
-      cowsStr=="0"
-    }
-    guessAnswer = "<p>el codigo que ingreso no es el correcto</p>"
-    guessAnswer+="<p>Obtuviste: "+cowsStr+" vacas</p>"
+    AnswerHTML = "<p>el codigo que ingreso no es el correcto</p>"
+    AnswerHTML+= "<p>Pista obtenida:"+cowsAndBullsObj.getHintString(codeNumber)+"</p>"
   }
-  return guessAnswer
+  if(cowsAndBullsObj.getLifesRemaining()<=0)
+  {
+    AnswerHTML+= "<p>Perdiste el juego, el codigo era: "+cowsAndBullsObj.getSecretCode()+"</p>"
+  }
+  return AnswerHTML
 }
 
 saveButton.addEventListener("click", (event) => {
@@ -58,5 +64,8 @@ saveButton.addEventListener("click", (event) => {
 
   guessButton.addEventListener("click",(event)=>{
     event.preventDefault();
-    guessString.innerHTML = getGuessAnswer();
+    guessString.innerHTML = getGuessAnswerHTML();
+    updateLifesHTML()
   })
+
+onload = (event) => { updateLifesHTML()};
