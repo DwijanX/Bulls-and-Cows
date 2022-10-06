@@ -10,11 +10,26 @@ const guessButton = document.querySelector("#guessButton");
 const SecretCodeInputClass = document.querySelectorAll(".SecretCodeInputClass");
 const itemsToGuessCode = document.querySelectorAll(".itemsToGuessCode");
 const LifesValue = document.querySelector("#LifesValue");
+const inputsArray = document.querySelectorAll("input")
 
 
-
+let maxLengthValue;
 let codeString = document.querySelector("#codeString");
 let guessString = document.querySelector("#guessString");
+
+
+inputsArray.forEach((input)=>{
+  input.addEventListener("input",(event)=>{
+    event.preventDefault();
+    let maxLength=cowsAndBullsObj.getCodeLength()
+    
+    if (input.value.length>maxLength)
+    {
+      input.value = input.value.slice(0,maxLength)
+    }
+  })
+})
+
 
 function updateLifesHTML()
 {
@@ -26,6 +41,7 @@ function changeItemsDisplay(Items,displayMode)
     item.style.display=displayMode
   })
 }
+
 function getGuessAnswerHTML()
 {
   const codeNumber = Number.parseInt(codeTry.value);
@@ -61,11 +77,12 @@ saveButton.addEventListener("click", (event) => {
     cowsAndBullsObj.saveSecretCode(codeNumber)
   })
 
-
   guessButton.addEventListener("click",(event)=>{
     event.preventDefault();
     guessString.innerHTML = getGuessAnswerHTML();
     updateLifesHTML()
   })
 
-onload = (event) => { updateLifesHTML()};
+onload = (event) => { 
+  updateLifesHTML()
+};

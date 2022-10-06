@@ -81,5 +81,14 @@ describe("Pruebas de las vidas del juego",()=>{
         cowsAndBullsObj.guessSecretCode(1000)
         expect(cowsAndBullsObj.getLifesRemaining()).toEqual(7);
     })
-    
+})
+
+describe("pruebas de tamano del codigo secreto",()=>{
+    let cowsAndBullsObj;
+    beforeEach(()=>{
+        cowsAndBullsObj=new CowsAndBulls()
+    })
+    it("devuelve el tamano de la cadena por defecto",()=>{
+        expect(cowsAndBullsObj.getCodeLength()).toEqual(4);
+    })
 })

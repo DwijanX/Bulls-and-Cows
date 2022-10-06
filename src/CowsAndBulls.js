@@ -5,6 +5,7 @@ class CowsAndBulls
         this.currentTurn=1
         this.secretCode
         this.lifes=8
+        this.codeLength = 4
      }
      saveSecretCode(code)
      {
@@ -27,6 +28,10 @@ class CowsAndBulls
      {
          this.lifes-=1
          return code == this.secretCode
+     }
+     getCodeLength()
+     {
+         return this.codeLength
      }
      getCowCharacters(code)
      {
