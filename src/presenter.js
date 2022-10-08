@@ -12,6 +12,8 @@ const itemsToGuessCode = document.querySelectorAll(".itemsToGuessCode");
 const LifesValue = document.querySelector("#LifesValue");
 const inputsArray = document.querySelectorAll("input")
 const codeLengthInput = document.querySelector("#codeLengthInput")
+const AIButton = document.querySelector("#AIButton")
+
 
 
 
@@ -88,6 +90,15 @@ saveButton.addEventListener("click", (event) => {
     guessString.innerHTML = getGuessAnswerHTML();
     updateLifesHTML()
   })
+  AIButton.addEventListener("click",(event)=>{
+    event.preventDefault();
+    changeItemsDisplay(SecretCodeInputClass,"none")
+    changeItemsDisplay(itemsToGuessCode,"flex")
+    codeLengthInput.style.display="none"
+
+    cowsAndBullsObj.swapPlayersTurn()
+    cowsAndBullsObj.generateCodeRandomly()
+  })
   
   codeLengthInput.addEventListener("change",(event)=>{
     
@@ -97,6 +108,7 @@ saveButton.addEventListener("click", (event) => {
     })
   })
 
+  
 onload = (event) => { 
   updateLifesHTML()
 };

@@ -96,3 +96,22 @@ describe("pruebas de tamano del codigo secreto",()=>{
         expect(cowsAndBullsObj.getCodeLength()).toEqual(5);
     })
 })
+
+describe("pruebas para generar codigos aleatoriamente",()=>{
+    let cowsAndBullsObj;
+    const mockMath = Object.create(global.Math);
+    mockMath.random = () => 0.5;  //todos los numeros random en las pruebas daran 0.5
+    global.Math = mockMath;
+    beforeEach(()=>{
+        cowsAndBullsObj=new CowsAndBulls()
+    })
+    it("probando generar codigo con 4 digitos",()=>{
+        cowsAndBullsObj.generateCodeRandomly()
+        expect(cowsAndBullsObj.getSecretCode()).toEqual(5500);
+    })
+    it("probando generar codigo con 4 digitos",()=>{
+        cowsAndBullsObj.setCodeLength(5)
+        cowsAndBullsObj.generateCodeRandomly()
+        expect(cowsAndBullsObj.getSecretCode()).toEqual(55000);
+    })
+})

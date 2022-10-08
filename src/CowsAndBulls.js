@@ -77,5 +77,11 @@ class CowsAndBulls
          let cowChar = this.getCowCharacters(code)
          return bullChar +  cowChar.substring(bullChar.length)
      }
+     generateCodeRandomly()
+     {
+      let minNumber=10**(this.codeLength-1)
+      let maxNumber=10**(this.codeLength)
+      this.secretCode=Math.round( Math.random() * (maxNumber - minNumber) + minNumber);
+     }
 }
 export default CowsAndBulls
