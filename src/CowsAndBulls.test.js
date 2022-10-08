@@ -107,11 +107,34 @@ describe("pruebas para generar codigos aleatoriamente",()=>{
     })
     it("probando generar codigo con 4 digitos",()=>{
         cowsAndBullsObj.generateCodeRandomly()
-        expect(cowsAndBullsObj.getSecretCode()).toEqual(5500);
+        expect(cowsAndBullsObj.getSecretCode()).toEqual("5555");
     })
-    it("probando generar codigo con 4 digitos",()=>{
+    it("probando generar codigo con 5 digitos",()=>{
         cowsAndBullsObj.setCodeLength(5)
         cowsAndBullsObj.generateCodeRandomly()
-        expect(cowsAndBullsObj.getSecretCode()).toEqual(55000);
+        expect(cowsAndBullsObj.getSecretCode()).toEqual("55555");
+    })
+})
+describe("pruebas usando un codigo que contiene letras",()=>{
+    let cowsAndBullsObj;
+    const mockMath = Object.create(global.Math);
+    mockMath.random = () => 0.5;  //todos los numeros random en las pruebas daran 0.5
+    global.Math = mockMath;
+    beforeEach(()=>{
+        cowsAndBullsObj=new CowsAndBulls()
+    })
+    it("guardar un codigo con letras",()=>{
+        cowsAndBullsObj.saveSecretCode("a13g")
+        expect(cowsAndBullsObj.getSecretCode()).toEqual("a13g");
+    })
+    
+    it("Prueba entre vacas y toros juntos usando letras",()=>{
+        cowsAndBullsObj.saveSecretCode("1ga4")
+        expect(cowsAndBullsObj.getHintString("2da4")).toEqual("!!");
+    })
+    it("Prueba para generar numeros aleatorios con letras",()=>{
+        cowsAndBullsObj.setUseLetters(true)
+        cowsAndBullsObj.generateCodeRandomly()
+        expect(cowsAndBullsObj.getSecretCode()).toEqual("iiii");
     })
 })

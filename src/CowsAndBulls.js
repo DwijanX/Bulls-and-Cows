@@ -1,3 +1,5 @@
+const valuesToGenerateSecretCode=['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+
 class CowsAndBulls
 {
      constructor()
@@ -6,10 +8,15 @@ class CowsAndBulls
         this.secretCode
         this.lifes=8
         this.codeLength=4
+        this.useLetters=false
      }
      setCodeLength(length)
      {
       this.codeLength=length
+     }
+     setUseLetters(value) 
+     {
+      this.useLetters=value
      }
      saveSecretCode(code)
      {
@@ -79,9 +86,18 @@ class CowsAndBulls
      }
      generateCodeRandomly()
      {
-      let minNumber=10**(this.codeLength-1)
-      let maxNumber=10**(this.codeLength)
-      this.secretCode=Math.round( Math.random() * (maxNumber - minNumber) + minNumber);
+      let randomSecretCode=""
+      let numberOfValuesToGenerateCode;
+      if(this.useLetters)
+         numberOfValuesToGenerateCode=valuesToGenerateSecretCode.length
+      else
+         numberOfValuesToGenerateCode=10
+      for(let it=0;it<this.codeLength;it++)
+      {
+         let randomIndex=Math.round( Math.random() * (numberOfValuesToGenerateCode));
+         randomSecretCode+=valuesToGenerateSecretCode[randomIndex]
+      }
+      this.secretCode=randomSecretCode
      }
 }
 export default CowsAndBulls

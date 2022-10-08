@@ -10,9 +10,10 @@ const guessButton = document.querySelector("#guessButton");
 const SecretCodeInputClass = document.querySelectorAll(".SecretCodeInputClass");
 const itemsToGuessCode = document.querySelectorAll(".itemsToGuessCode");
 const LifesValue = document.querySelector("#LifesValue");
-const inputsArray = document.querySelectorAll("input")
+const inputsArray = document.querySelectorAll(".inputCodeField")
 const codeLengthInput = document.querySelector("#codeLengthInput")
 const AIButton = document.querySelector("#AIButton")
+const lettersCheckBox = document.querySelector("#lettersCheckBox")
 
 
 
@@ -105,6 +106,14 @@ saveButton.addEventListener("click", (event) => {
     cowsAndBullsObj.setCodeLength(parseInt(codeLengthInput.value))
     inputsArray.forEach((input)=>{
       input.value=""
+    })
+  })
+  lettersCheckBox.addEventListener("change",()=>{
+    let inputModes={false:"number",true:"text"}
+    let useLettersBoolean=lettersCheckBox.checked
+    cowsAndBullsObj.setUseLetters(useLettersBoolean)
+    inputsArray.forEach((input)=>{
+      input.type=inputModes[useLettersBoolean]
     })
   })
 

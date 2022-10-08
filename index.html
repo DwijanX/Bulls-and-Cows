@@ -9,23 +9,25 @@
 </head>
 <body>
   <h1>Toros y vacas: V1.0.0</h1>
+
     <select name="select" id="codeLengthInput">
       <option value="4">4 caracteres</option>
       <option value="5">5 caracteres</option>
       <option value="6">6 caracteres</option>
     </select>
+    <label><input type="checkbox" id="lettersCheckBox"> Usar letras</label><br>
     <button class="SecretCodeInputClass" id="AIButton" >Play against AI</button>
 
   <section>
     <label class="SecretCodeInputClass" for="code">ingresa el codigo secreto</label>
-    <input class="SecretCodeInputClass" type="number" id="code" />
+    <input class="SecretCodeInputClass inputCodeField" type="number" id="code" />
     <button class="SecretCodeInputClass" id="saveButton">guardar</button>
     <div class="SecretCodeInputClass" id="codeString"></div>
     <button class="SecretCodeInputClass" id="startButton" style="display: none;">Start</button>
   </section>
   <section>
     <p class="itemsToGuessCode" id="Lifes">Vidas Restantes:<span id="LifesValue"></span></p>
-    <label class="itemsToGuessCode" for="code">ingresa tu intento de adivinar</label>
+    <label class="itemsToGuessCode inputCodeField" for="code">ingresa tu intento de adivinar</label>
     <input class="itemsToGuessCode" type="number" id="codeTry" />
     <button class="itemsToGuessCode" id="guessButton">Adivinar</button>
     <div class="guessingTryAnswer" id="guessString"></div>
