@@ -48,7 +48,7 @@ function changeItemsDisplay(Items,displayMode)
 
 function getGuessAnswerHTML()
 {
-  const codeNumber = Number.parseInt(codeTry.value);
+  const codeNumber = String(codeTry.value);
   let AnswerHTML="";
   if(!cowsAndBullsObj.guessSecretCode(codeNumber))
   {
@@ -70,8 +70,7 @@ function getGuessAnswerHTML()
 saveButton.addEventListener("click", (event) => {
     event.preventDefault();
   
-    const codeNumber = Number.parseInt(code.value);
-
+    const codeNumber = String(code.value);
     codeLengthInput.style.display="none"
     codeString.innerHTML = "<p>la clave secreta es: "+codeNumber + ", estas listo para empezar?" + "</p>";
     startButton.style.display = 'flex';
@@ -81,7 +80,7 @@ saveButton.addEventListener("click", (event) => {
     event.preventDefault();
     changeItemsDisplay(SecretCodeInputClass,"none")
     changeItemsDisplay(itemsToGuessCode,"flex")
-    const codeNumber = Number.parseInt(code.value);
+    const codeNumber = String(code.value);
     cowsAndBullsObj.swapPlayersTurn()
     cowsAndBullsObj.saveSecretCode(codeNumber)
   })

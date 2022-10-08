@@ -15,7 +15,7 @@
       <option value="5">5 caracteres</option>
       <option value="6">6 caracteres</option>
     </select>
-    <label><input type="checkbox" id="lettersCheckBox"> Usar letras</label><br>
+    <label class="SecretCodeInputClass"><input type="checkbox" id="lettersCheckBox"> Usar letras</label><br>
     <button class="SecretCodeInputClass" id="AIButton" >Play against AI</button>
 
   <section>
@@ -27,8 +27,8 @@
   </section>
   <section>
     <p class="itemsToGuessCode" id="Lifes">Vidas Restantes:<span id="LifesValue"></span></p>
-    <label class="itemsToGuessCode inputCodeField" for="code">ingresa tu intento de adivinar</label>
-    <input class="itemsToGuessCode" type="number" id="codeTry" />
+    <label class="itemsToGuessCode" for="code">ingresa tu intento de adivinar</label>
+    <input class="itemsToGuessCode inputCodeField" type="number" id="codeTry" />
     <button class="itemsToGuessCode" id="guessButton">Adivinar</button>
     <div class="guessingTryAnswer" id="guessString"></div>
   </section>
