@@ -30,10 +30,10 @@ class CowsAndBulls
 
      getCodeList()
      {
-         let codeString=""
+         let codeString="intentos:"
          for (var i = 0; i < this.codeList.length ; i++) 
          {
-            codeString+= i + ' = ' + this.codeList[i];
+            codeString+= ' '+ this.codeList[i];
             if(i != this.codeList.length - 1)
             {
                codeString+=','
@@ -49,6 +49,7 @@ class CowsAndBulls
             this.codeList.push(code)
          }
      }
+
      swapPlayersTurn()
      {
         if(this.currentTurn==1) this.currentTurn=2
@@ -60,7 +61,11 @@ class CowsAndBulls
      }
      guessSecretCode(code)
      {
-         this.lifes-=1
+         if (!this.codeList.includes(code))
+         {
+            this.lifes-=1
+         }
+         this.addNewCodeToList(code)
          return code == this.secretCode
      }
      getCodeLength()

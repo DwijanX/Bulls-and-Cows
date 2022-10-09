@@ -146,11 +146,25 @@ describe("pruebas para guardar lista de codigos anteriormente puestos",()=>{
         cowsAndBullsObj.addNewCodeToList("1111")
     })
     it("guardando un nuevo codigo",()=>{
-        expect(cowsAndBullsObj.getCodeList()).toEqual("0 = 1111");
+        expect(cowsAndBullsObj.getCodeList()).toEqual("intentos: 1111");
     })
     it("guardando muchos codigos",()=>{
         cowsAndBullsObj.addNewCodeToList("2222")
         cowsAndBullsObj.addNewCodeToList("3333")
-        expect(cowsAndBullsObj.getCodeList()).toEqual("0 = 1111,1 = 2222,2 = 3333");
+        expect(cowsAndBullsObj.getCodeList()).toEqual("intentos: 1111, 2222, 3333");
+    })
+    it("probando que no se guarden codigos repetidos",()=>{
+        cowsAndBullsObj.addNewCodeToList("2222")
+        cowsAndBullsObj.addNewCodeToList("3333")
+        cowsAndBullsObj.addNewCodeToList("3333")
+        cowsAndBullsObj.addNewCodeToList("3333")
+        expect(cowsAndBullsObj.getCodeList()).toEqual("intentos: 1111, 2222, 3333");
+    })
+    it("probando que se guarde codigo al adivinar",()=>{
+        cowsAndBullsObj.guessSecretCode("2222")
+        cowsAndBullsObj.guessSecretCode("3333")
+        cowsAndBullsObj.guessSecretCode("3333")
+        cowsAndBullsObj.guessSecretCode("3333")
+        expect(cowsAndBullsObj.getCodeList()).toEqual("intentos: 1111, 2222, 3333");
     })
 })
