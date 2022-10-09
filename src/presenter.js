@@ -20,6 +20,7 @@ const lettersCheckBox = document.querySelector("#lettersCheckBox")
 
 let codeString = document.querySelector("#codeString");
 let guessString = document.querySelector("#guessString");
+let codesAlreadyWritten = document.querySelector("#codesAlreadyWritten");
 
 
 inputsArray.forEach((input)=>{
@@ -83,11 +84,13 @@ saveButton.addEventListener("click", (event) => {
     const codeNumber = String(code.value);
     cowsAndBullsObj.swapPlayersTurn()
     cowsAndBullsObj.saveSecretCode(codeNumber)
+    codesAlreadyWritten.innerHTML = cowsAndBullsObj.getCodeList()
   })
 
   guessButton.addEventListener("click",(event)=>{
     event.preventDefault();
     guessString.innerHTML = getGuessAnswerHTML();
+    codesAlreadyWritten.innerHTML = cowsAndBullsObj.getCodeList()
     updateLifesHTML()
   })
   AIButton.addEventListener("click",(event)=>{
@@ -98,6 +101,7 @@ saveButton.addEventListener("click", (event) => {
 
     cowsAndBullsObj.swapPlayersTurn()
     cowsAndBullsObj.generateCodeRandomly()
+    codesAlreadyWritten.innerHTML = cowsAndBullsObj.getCodeList()
   })
   
   codeLengthInput.addEventListener("change",(event)=>{
