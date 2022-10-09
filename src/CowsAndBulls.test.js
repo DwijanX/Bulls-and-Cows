@@ -138,3 +138,19 @@ describe("pruebas usando un codigo que contiene letras",()=>{
         expect(cowsAndBullsObj.getSecretCode()).toEqual("iiii");
     })
 })
+describe("pruebas para guardar lista de codigos anteriormente puestos",()=>{
+    let cowsAndBullsObj;
+    beforeEach(()=>{
+        cowsAndBullsObj=new CowsAndBulls()
+        cowsAndBullsObj.saveSecretCode("a13g")
+        cowsAndBullsObj.addNewCodeToList("1111")
+    })
+    it("guardando un nuevo codigo",()=>{
+        expect(cowsAndBullsObj.getCodeList()).toEqual("0 = 1111");
+    })
+    it("guardando muchos codigos",()=>{
+        cowsAndBullsObj.addNewCodeToList("2222")
+        cowsAndBullsObj.addNewCodeToList("3333")
+        expect(cowsAndBullsObj.getCodeList()).toEqual("0 = 1111,1 = 2222,2 = 3333");
+    })
+})

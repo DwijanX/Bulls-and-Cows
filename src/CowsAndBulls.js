@@ -9,6 +9,7 @@ class CowsAndBulls
         this.lifes=8
         this.codeLength=4
         this.useLetters=false
+        this.codeList = []
      }
      setCodeLength(length)
      {
@@ -25,6 +26,28 @@ class CowsAndBulls
      getSecretCode()
      {
         return this.secretCode
+     }
+
+     getCodeList()
+     {
+         let codeString=""
+         for (var i = 0; i < this.codeList.length ; i++) 
+         {
+            codeString+= i + ' = ' + this.codeList[i];
+            if(i != this.codeList.length - 1)
+            {
+               codeString+=','
+            }
+         }
+         return codeString
+     }
+
+     addNewCodeToList(code)
+     {
+         if(!this.codeList.includes(code))
+         {
+            this.codeList.push(code)
+         }
      }
      swapPlayersTurn()
      {
@@ -84,6 +107,8 @@ class CowsAndBulls
          let cowChar = this.getCowCharacters(code)
          return bullChar +  cowChar.substring(bullChar.length)
      }
+     
+
      generateCodeRandomly()
      {
       let randomSecretCode=""
@@ -91,7 +116,7 @@ class CowsAndBulls
       if(this.useLetters)
          numberOfValuesToGenerateCode=valuesToGenerateSecretCode.length
       else
-         numberOfValuesToGenerateCode=10
+         numberOfValuesToGenerateCode=9
       for(let it=0;it<this.codeLength;it++)
       {
          let randomIndex=Math.round( Math.random() * (numberOfValuesToGenerateCode));
