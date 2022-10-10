@@ -14,7 +14,7 @@ const inputsArray = document.querySelectorAll(".inputCodeField")
 const codeLengthInput = document.querySelector("#codeLengthInput")
 const AIButton = document.querySelector("#AIButton")
 const lettersCheckBox = document.querySelector("#lettersCheckBox")
-
+const lifes = document.querySelector("#lifes")
 
 
 
@@ -35,6 +35,13 @@ inputsArray.forEach((input)=>{
   })
 })
 
+function setLifesIfValueIsAdded()
+{
+  if(lifes.value != null)
+  {
+    cowsAndBullsObj.setLifesValue(lifes.value)
+  }
+}
 
 function updateLifesHTML()
 {
@@ -84,6 +91,9 @@ saveButton.addEventListener("click", (event) => {
     const codeNumber = String(code.value);
     cowsAndBullsObj.swapPlayersTurn()
     cowsAndBullsObj.saveSecretCode(codeNumber)
+    setLifesIfValueIsAdded()
+    updateLifesHTML()
+
     codesAlreadyWritten.innerHTML = cowsAndBullsObj.getCodeList()
   })
 
@@ -93,6 +103,7 @@ saveButton.addEventListener("click", (event) => {
     codesAlreadyWritten.innerHTML = cowsAndBullsObj.getCodeList()
     updateLifesHTML()
   })
+  
   AIButton.addEventListener("click",(event)=>{
     event.preventDefault();
     changeItemsDisplay(SecretCodeInputClass,"none")
@@ -101,6 +112,10 @@ saveButton.addEventListener("click", (event) => {
 
     cowsAndBullsObj.swapPlayersTurn()
     cowsAndBullsObj.generateCodeRandomly()
+
+    setLifesIfValueIsAdded()
+    updateLifesHTML()
+
     codesAlreadyWritten.innerHTML = cowsAndBullsObj.getCodeList()
   })
   
