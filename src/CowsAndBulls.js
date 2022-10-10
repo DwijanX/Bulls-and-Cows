@@ -9,7 +9,7 @@ class CowsAndBulls
         this.lifes=8
         this.codeLength=4
         this.useLetters=false
-        this.codeList = []
+        this.codeSet = new Set()
      }
 
      setCodeLength(length)
@@ -35,23 +35,17 @@ class CowsAndBulls
      getCodeList()
      {
          let codeString="intentos:"
-         for (var i = 0; i < this.codeList.length ; i++) 
-         {
-            codeString+= ' '+ this.codeList[i];
-            if(i != this.codeList.length - 1)
-            {
-               codeString+=','
-            }
-         }
+         console.log(this.codeSet)
+         this.codeSet.forEach((code)=>{
+            codeString+= ' '+ code+",";
+         })
+         codeString=codeString.substring(0,codeString.length-1)
          return codeString
      }
 
      addNewCodeToList(code)
      {
-         if(!this.codeList.includes(code))
-         {
-            this.codeList.push(code)
-         }
+         this.codeSet.add(code)
      }
 
      swapPlayersTurn()
@@ -77,7 +71,7 @@ class CowsAndBulls
 
      guessSecretCode(code)
      {
-         if (!this.codeList.includes(code))
+         if (!this.codeSet.has(code))
          {
             this.lifes-=1
          }

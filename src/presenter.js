@@ -37,7 +37,7 @@ inputsArray.forEach((input)=>{
 
 function setLifesIfValueIsAdded()
 {
-  if(lifes.value != null)
+  if(lifes.value != "")
   {
     cowsAndBullsObj.setLifesValue(lifes.value)
   }
