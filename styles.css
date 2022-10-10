@@ -1,3 +1,6 @@
 .itemsToGuessCode{
     display: none;
 }
+#playAgainButton{
+    display: none;
+}

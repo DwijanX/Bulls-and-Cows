@@ -10,7 +10,7 @@
 <body>
   <h1>Toros y vacas: V1.0.0</h1>
 
-    <select name="select" id="codeLengthInput">
+    <select name="select" class="SecretCodeInputClass"id="codeLengthInput">
       <option value="4">4 caracteres</option>
       <option value="5">5 caracteres</option>
       <option value="6">6 caracteres</option>
@@ -28,16 +28,19 @@
     <div class="SecretCodeInputClass" id="codeString"></div>
     <button class="SecretCodeInputClass" id="startButton" style="display: none;">Start</button>
   </section>
+  
   <section>
     <p class="itemsToGuessCode" id="Lifes">Vidas Restantes:<span id="LifesValue"></span></p>
     <label class="itemsToGuessCode" for="code">ingresa tu intento de adivinar</label>
     <input class="itemsToGuessCode inputCodeField" type="number" id="codeTry" />
     <button class="itemsToGuessCode" id="guessButton">Adivinar</button>
-    <div class="guessingTryAnswer" id="guessString"></div>
+    <div class="itemsToGuessCode" id="guessString"></div>
   </section>
   <section>
     <div class="itemsToGuessCode" id="codesAlreadyWritten"></div>
   </section>
+  <button  id="playAgainButton">Play Again</button>
+
   
 
   <script type="module" src="./src/presenter.js"></script>

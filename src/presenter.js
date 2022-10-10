@@ -1,6 +1,6 @@
 import CowsAndBulls from "./CowsAndBulls.js";
 
-const cowsAndBullsObj = new CowsAndBulls()
+let cowsAndBullsObj = new CowsAndBulls()
 
 const code = document.querySelector("#code");
 const codeTry = document.querySelector("#codeTry");
@@ -15,6 +15,7 @@ const codeLengthInput = document.querySelector("#codeLengthInput")
 const AIButton = document.querySelector("#AIButton")
 const lettersCheckBox = document.querySelector("#lettersCheckBox")
 const lifes = document.querySelector("#lifes")
+const playAgainButton = document.querySelector("#playAgainButton")
 
 
 
@@ -22,6 +23,10 @@ let codeString = document.querySelector("#codeString");
 let guessString = document.querySelector("#guessString");
 let codesAlreadyWritten = document.querySelector("#codesAlreadyWritten");
 
+function setRestartButtonVisible()
+{
+  playAgainButton.style.display="flex"
+}
 
 inputsArray.forEach((input)=>{
   input.addEventListener("input",(event)=>{
@@ -47,6 +52,7 @@ function updateLifesHTML()
 {
   LifesValue.innerHTML=cowsAndBullsObj.getLifesRemaining()
 }
+
 function changeItemsDisplay(Items,displayMode)
 {
   Items.forEach((item)=>{
@@ -65,12 +71,15 @@ function getGuessAnswerHTML()
     if(cowsAndBullsObj.getLifesRemaining()<=0)
     {
       AnswerHTML+= "<p>Perdiste el juego, el codigo era: "+cowsAndBullsObj.getSecretCode()+"</p>"
+      setRestartButtonVisible()
     }
   }
   else
   {
     AnswerHTML+= "<p>lo lograste!, el codigo que ingresaste es el correcto<p>"
     guessButton.style.display="none"
+    setRestartButtonVisible()
+
   }
   return AnswerHTML
 }
@@ -81,6 +90,7 @@ saveButton.addEventListener("click", (event) => {
     const codeNumber = String(code.value);
     codeLengthInput.style.display="none"
     codeString.innerHTML = "<p>la clave secreta es: "+codeNumber + ", estas listo para empezar?" + "</p>";
+    codeString.style.display="flex"
     startButton.style.display = 'flex';
   });
   
@@ -132,6 +142,18 @@ saveButton.addEventListener("click", (event) => {
     cowsAndBullsObj.setUseLetters(useLettersBoolean)
     inputsArray.forEach((input)=>{
       input.type=inputModes[useLettersBoolean]
+    })
+  })
+  playAgainButton.addEventListener("click",(e)=>{
+    e.preventDefault();
+    cowsAndBullsObj=new CowsAndBulls()
+    changeItemsDisplay(SecretCodeInputClass,"flex")
+    changeItemsDisplay(itemsToGuessCode,"none")
+    codeString.style.display="none"
+    startButton.style.display="none"
+    playAgainButton.style.display="none"
+    inputsArray.forEach((input)=>{
+      input.value=""
     })
   })
 
