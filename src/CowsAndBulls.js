@@ -32,10 +32,9 @@ class CowsAndBulls
         return this.secretCode
      }
 
-     getCodeList()
+     getCodeHistory()
      {
          let codeString="intentos:"
-         console.log(this.codeSet)
          this.codeSet.forEach((code)=>{
             codeString+= ' '+ code+",";
          })
@@ -43,7 +42,7 @@ class CowsAndBulls
          return codeString
      }
 
-     addNewCodeToList(code)
+     addNewCodeToHistory(code)
      {
          this.codeSet.add(code)
      }
@@ -75,7 +74,7 @@ class CowsAndBulls
          {
             this.lifes-=1
          }
-         this.addNewCodeToList(code)
+         this.addNewCodeToHistory(code)
          return code == this.secretCode
      }
 

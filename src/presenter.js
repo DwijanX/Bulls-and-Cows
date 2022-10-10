@@ -94,13 +94,13 @@ saveButton.addEventListener("click", (event) => {
     setLifesIfValueIsAdded()
     updateLifesHTML()
 
-    codesAlreadyWritten.innerHTML = cowsAndBullsObj.getCodeList()
+    codesAlreadyWritten.innerHTML = cowsAndBullsObj.getCodeHistory()
   })
 
   guessButton.addEventListener("click",(event)=>{
     event.preventDefault();
     guessString.innerHTML = getGuessAnswerHTML();
-    codesAlreadyWritten.innerHTML = cowsAndBullsObj.getCodeList()
+    codesAlreadyWritten.innerHTML = cowsAndBullsObj.getCodeHistory()
     updateLifesHTML()
   })
   
@@ -116,7 +116,7 @@ saveButton.addEventListener("click", (event) => {
     setLifesIfValueIsAdded()
     updateLifesHTML()
 
-    codesAlreadyWritten.innerHTML = cowsAndBullsObj.getCodeList()
+    codesAlreadyWritten.innerHTML = cowsAndBullsObj.getCodeHistory()
   })
   
   codeLengthInput.addEventListener("change",(event)=>{
