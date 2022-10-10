@@ -11,18 +11,22 @@ class CowsAndBulls
         this.useLetters=false
         this.codeList = []
      }
+
      setCodeLength(length)
      {
       this.codeLength=length
      }
+
      setUseLetters(value) 
      {
       this.useLetters=value
      }
+
      saveSecretCode(code)
      {
         this.secretCode=code
      }
+
      getSecretCode()
      {
         return this.secretCode
@@ -55,10 +59,22 @@ class CowsAndBulls
         if(this.currentTurn==1) this.currentTurn=2
         else this.currentTurn=1
      }
+
      getCurrentTurn()
      {
         return this.currentTurn
      }
+
+     getLifesValue()
+     {
+        return this.lifes
+     } 
+
+     setLifesValue(newLifeValue)
+     {
+      this.lifes=newLifeValue
+     }
+
      guessSecretCode(code)
      {
          if (!this.codeList.includes(code))
@@ -68,10 +84,12 @@ class CowsAndBulls
          this.addNewCodeToList(code)
          return code == this.secretCode
      }
+
      getCodeLength()
      {
          return this.codeLength
      }
+     
      getCowCharacters(code)
      {
       let guessingCodeString=String(code)
@@ -87,10 +105,12 @@ class CowsAndBulls
       }
       return cowsCharacters
      }
+
      getLifesRemaining()
      {
       return this.lifes
      }
+
      getBullCharacters(code)
      {
          let guessingCodeString=String(code)

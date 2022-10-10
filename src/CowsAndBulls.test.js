@@ -81,6 +81,17 @@ describe("Pruebas de las vidas del juego",()=>{
         cowsAndBullsObj.guessSecretCode(1000)
         expect(cowsAndBullsObj.getLifesRemaining()).toEqual(7);
     })
+    it("viendo la cantidad de vidas que se tiene al cambiar su valor",()=>{
+        cowsAndBullsObj.setLifesValue(10)
+         expect(cowsAndBullsObj.getLifesValue()).toEqual(10);
+    })
+    it("Reduciendo la cantidad de vidas con cada intento con un valor de vidas distinto",()=>{
+        cowsAndBullsObj.setLifesValue(15)
+        cowsAndBullsObj.guessSecretCode(1000)
+        cowsAndBullsObj.guessSecretCode(1001)
+        cowsAndBullsObj.guessSecretCode(1002)
+        expect(cowsAndBullsObj.getLifesRemaining()).toEqual(12);
+    })
 })
 
 describe("pruebas de tamano del codigo secreto",()=>{
