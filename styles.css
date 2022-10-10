@@ -4,3 +4,7 @@
 #playAgainButton{
     display: none;
 }
+#guessString{
+    display: flex;
+    flex-direction: column;
+}

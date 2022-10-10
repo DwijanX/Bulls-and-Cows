@@ -11,6 +11,35 @@ class CowsAndBulls
         this.useLetters=false
         this.codeSet = new Set()
      }
+     getCowCharacters(code)
+     {
+      let guessingCodeString=String(code)
+      let secretCodeString=String(this.secretCode);
+      let cowsCharacters=""
+      for(let index=0;index<guessingCodeString.length;index++)
+      {
+         if(secretCodeString.includes(guessingCodeString[index]))
+         {
+               cowsCharacters+="*"
+               secretCodeString=secretCodeString.replace(guessingCodeString[index],"")
+         }
+      }
+      return cowsCharacters
+     }
+     getBullCharacters(code)
+     {
+         let guessingCodeString=String(code)
+         let secretCodeString=String(this.secretCode);
+         let cowsCharacters=""
+         for(let index=0;index<guessingCodeString.length;index++)
+         {
+            if(secretCodeString[index] == guessingCodeString[index])
+            {
+               cowsCharacters+="!"
+            }
+         }
+         return cowsCharacters
+     }
 
      setCodeLength(length)
      {
@@ -83,41 +112,14 @@ class CowsAndBulls
          return this.codeLength
      }
      
-     getCowCharacters(code)
-     {
-      let guessingCodeString=String(code)
-      let secretCodeString=String(this.secretCode);
-      let cowsCharacters=""
-      for(let index=0;index<guessingCodeString.length;index++)
-      {
-         if(secretCodeString.includes(guessingCodeString[index]))
-         {
-               cowsCharacters+="*"
-               secretCodeString=secretCodeString.replace(guessingCodeString[index],"")
-         }
-      }
-      return cowsCharacters
-     }
+     
 
      getLifesRemaining()
      {
       return this.lifes
      }
 
-     getBullCharacters(code)
-     {
-         let guessingCodeString=String(code)
-         let secretCodeString=String(this.secretCode);
-         let cowsCharacters=""
-         for(let index=0;index<guessingCodeString.length;index++)
-         {
-            if(secretCodeString[index] == guessingCodeString[index])
-            {
-               cowsCharacters+="!"
-            }
-         }
-         return cowsCharacters
-     }
+     
 
      getHintString(code)
      {

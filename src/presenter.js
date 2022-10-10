@@ -1,6 +1,4 @@
-import CowsAndBulls from "./CowsAndBulls.js";
-
-let cowsAndBullsObj = new CowsAndBulls()
+import CowsAndBullsController from "./CowsAndBullsController.js"
 
 const code = document.querySelector("#code");
 const codeTry = document.querySelector("#codeTry");
@@ -18,21 +16,16 @@ const lifes = document.querySelector("#lifes")
 const playAgainButton = document.querySelector("#playAgainButton")
 
 
+const gameController=new CowsAndBullsController(playAgainButton)
 
 let codeString = document.querySelector("#codeString");
 let guessString = document.querySelector("#guessString");
 let codesAlreadyWritten = document.querySelector("#codesAlreadyWritten");
 
-function setRestartButtonVisible()
-{
-  playAgainButton.style.display="flex"
-}
-
 inputsArray.forEach((input)=>{
   input.addEventListener("input",(event)=>{
     event.preventDefault();
-    let maxLength=cowsAndBullsObj.getCodeLength()
-    
+    let maxLength=gameController.getGameObject().getCodeLength()
     if (input.value.length>maxLength)
     {
       input.value = input.value.slice(0,maxLength)
@@ -40,18 +33,6 @@ inputsArray.forEach((input)=>{
   })
 })
 
-function setLifesIfValueIsAdded()
-{
-  if(lifes.value != "")
-  {
-    cowsAndBullsObj.setLifesValue(lifes.value)
-  }
-}
-
-function updateLifesHTML()
-{
-  LifesValue.innerHTML=cowsAndBullsObj.getLifesRemaining()
-}
 
 function changeItemsDisplay(Items,displayMode)
 {
@@ -60,29 +41,6 @@ function changeItemsDisplay(Items,displayMode)
   })
 }
 
-function getGuessAnswerHTML()
-{
-  const codeNumber = String(codeTry.value);
-  let AnswerHTML="";
-  if(!cowsAndBullsObj.guessSecretCode(codeNumber))
-  {
-    AnswerHTML = "<p>el codigo que ingreso no es el correcto</p>"
-    AnswerHTML+= "<p>Pista obtenida:"+cowsAndBullsObj.getHintString(codeNumber)+"</p>"
-    if(cowsAndBullsObj.getLifesRemaining()<=0)
-    {
-      AnswerHTML+= "<p>Perdiste el juego, el codigo era: "+cowsAndBullsObj.getSecretCode()+"</p>"
-      setRestartButtonVisible()
-    }
-  }
-  else
-  {
-    AnswerHTML+= "<p>lo lograste!, el codigo que ingresaste es el correcto<p>"
-    guessButton.style.display="none"
-    setRestartButtonVisible()
-
-  }
-  return AnswerHTML
-}
 
 saveButton.addEventListener("click", (event) => {
     event.preventDefault();
@@ -99,19 +57,18 @@ saveButton.addEventListener("click", (event) => {
     changeItemsDisplay(SecretCodeInputClass,"none")
     changeItemsDisplay(itemsToGuessCode,"flex")
     const codeNumber = String(code.value);
-    cowsAndBullsObj.swapPlayersTurn()
-    cowsAndBullsObj.saveSecretCode(codeNumber)
-    setLifesIfValueIsAdded()
-    updateLifesHTML()
-
-    codesAlreadyWritten.innerHTML = cowsAndBullsObj.getCodeHistory()
+    gameController.getGameObject().swapPlayersTurn()
+    gameController.getGameObject().saveSecretCode(codeNumber)
+    gameController.setLifesIfValueIsValid(lifes.value)
+    gameController.updateLifesHTML(LifesValue)
+    gameController.fillHTMLObjwithHistory(codesAlreadyWritten)
   })
 
   guessButton.addEventListener("click",(event)=>{
     event.preventDefault();
-    guessString.innerHTML = getGuessAnswerHTML();
-    codesAlreadyWritten.innerHTML = cowsAndBullsObj.getCodeHistory()
-    updateLifesHTML()
+    guessString.innerHTML = gameController.getGuessAnswerHTML(String(codeTry.value))
+    gameController.fillHTMLObjwithHistory(codesAlreadyWritten)
+    gameController.updateLifesHTML(LifesValue)
   })
   
   AIButton.addEventListener("click",(event)=>{
@@ -120,18 +77,17 @@ saveButton.addEventListener("click", (event) => {
     changeItemsDisplay(itemsToGuessCode,"flex")
     codeLengthInput.style.display="none"
 
-    cowsAndBullsObj.swapPlayersTurn()
-    cowsAndBullsObj.generateCodeRandomly()
+    gameController.getGameObject().swapPlayersTurn()
+    gameController.getGameObject().generateCodeRandomly()
 
-    setLifesIfValueIsAdded()
-    updateLifesHTML()
+    gameController.setLifesIfValueIsValid(lifes.value)
+    gameController.updateLifesHTML(LifesValue)
+    gameController.fillHTMLObjwithHistory(codesAlreadyWritten)
 
-    codesAlreadyWritten.innerHTML = cowsAndBullsObj.getCodeHistory()
   })
   
   codeLengthInput.addEventListener("change",(event)=>{
-    
-    cowsAndBullsObj.setCodeLength(parseInt(codeLengthInput.value))
+    gameController.getGameObject().setCodeLength(parseInt(codeLengthInput.value))
     inputsArray.forEach((input)=>{
       input.value=""
     })
@@ -139,19 +95,21 @@ saveButton.addEventListener("click", (event) => {
   lettersCheckBox.addEventListener("change",()=>{
     let inputModes={false:"number",true:"text"}
     let useLettersBoolean=lettersCheckBox.checked
-    cowsAndBullsObj.setUseLetters(useLettersBoolean)
+    gameController.getGameObject().setUseLetters(useLettersBoolean)
     inputsArray.forEach((input)=>{
       input.type=inputModes[useLettersBoolean]
     })
   })
   playAgainButton.addEventListener("click",(e)=>{
     e.preventDefault();
-    cowsAndBullsObj=new CowsAndBulls()
+    gameController.restartGameObject()
     changeItemsDisplay(SecretCodeInputClass,"flex")
     changeItemsDisplay(itemsToGuessCode,"none")
     codeString.style.display="none"
     startButton.style.display="none"
     playAgainButton.style.display="none"
+    guessString.innerHTML=""
+    codesAlreadyWritten.innerHTML=""
     inputsArray.forEach((input)=>{
       input.value=""
     })
@@ -159,5 +117,5 @@ saveButton.addEventListener("click", (event) => {
 
   
 onload = (event) => { 
-  updateLifesHTML()
+  gameController.updateLifesHTML(LifesValue)
 };
