@@ -179,3 +179,13 @@ describe("pruebas para guardar lista de codigos anteriormente puestos",()=>{
         expect(cowsAndBullsObj.getCodeHistory()).toEqual("intentos: 1111, 2222, 3333");
     })
 })
+
+describe("Probando caracteres de bisontes y terneras",()=>{
+    let cowsAndBullsObj;
+    beforeEach(()=>{
+        cowsAndBullsObj=new CowsAndBulls()
+    })
+    it("probando bisontes con el 1",()=>{
+        expect(cowsAndBullsObj.getBisontesCharacters("1")).toEqual("");
+    })
+})
