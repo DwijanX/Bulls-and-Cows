@@ -71,7 +71,7 @@ class CowsAndBulls
      {
       let intSecretCode=parseInt(this.secretCode)
       let intCharacter=parseInt(code)
-      if(intSecretCode-1==intCharacter)
+      if(intSecretCode-1==intCharacter || intSecretCode+1==intCharacter)
          return "#"
       return ""
      }

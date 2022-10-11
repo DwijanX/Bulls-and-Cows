@@ -198,5 +198,8 @@ describe("Probando caracteres de bisontes y terneras",()=>{
         cowsAndBullsObj.saveSecretCode("2")
         expect(cowsAndBullsObj.getTerneraCharacters("1")).toEqual("#");
     })
-    
+    it("probando terneras con un codigo secreto mas 1",()=>{
+        cowsAndBullsObj.saveSecretCode("2")
+        expect(cowsAndBullsObj.getTerneraCharacters("3")).toEqual("#");
+    })
 })
