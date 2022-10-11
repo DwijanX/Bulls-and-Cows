@@ -154,10 +154,11 @@ class CowsAndBulls
       let terneraCharacters=""
       for(let index=0;index<guessingCodeString.length;index++)
       {
-         let numGuessingCodeStringMayor = parseInt(guessingCodeString[index]) - 1
-         let numGuessingCodeStringMenor = parseInt(guessingCodeString[index]) + 1
-         if(secretCodeString.includes(numGuessingCodeStringMenor.toString()) ||
-          secretCodeString.includes(numGuessingCodeStringMayor.toString()))
+         let terneraConditions = []
+         terneraConditions[0] = parseInt(guessingCodeString[index]) - 1
+         terneraConditions[1] = parseInt(guessingCodeString[index]) + 1
+
+         if(terneraConditions.some(numMenorOMayorPor1 => secretCodeString.includes(numMenorOMayorPor1)))
          {
                terneraCharacters+="#"
          }

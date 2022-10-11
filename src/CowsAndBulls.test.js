@@ -76,6 +76,10 @@ describe("Pruebas de respuesta tras adivinar",()=>{
         cowsAndBullsObj.saveSecretCode(1116)
         expect(cowsAndBullsObj.getTerneraCharacters(4445)).toEqual("#");
     })
+    it("Prueba de ternera con muchos valores",()=>{
+        cowsAndBullsObj.saveSecretCode(1116)
+        expect(cowsAndBullsObj.getTerneraCharacters(2457)).toEqual("###");
+    })
 })
 
 describe("Pruebas de las vidas del juego",()=>{
