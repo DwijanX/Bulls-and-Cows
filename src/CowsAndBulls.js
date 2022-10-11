@@ -79,6 +79,13 @@ class CowsAndBulls
       }
       return answerString
      }
+     getHintString(code)
+     {
+         let bullChar = this.getBullCharacters(code)
+         let cowChar = this.getCowCharacters(code)
+         let terneraChar=this.getTerneraCharacters(code)
+         return bullChar +  cowChar.substring(bullChar.length)+terneraChar
+     }
      setCodeLength(length)
      {
       this.codeLength=length
@@ -159,12 +166,7 @@ class CowsAndBulls
 
      
 
-     getHintString(code)
-     {
-         let bullChar = this.getBullCharacters(code)
-         let cowChar = this.getCowCharacters(code)
-         return bullChar +  cowChar.substring(bullChar.length)
-     }
+     
      
 
      generateCodeRandomly()

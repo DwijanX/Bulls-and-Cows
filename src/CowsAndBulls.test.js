@@ -141,7 +141,7 @@ describe("pruebas usando un codigo que contiene letras",()=>{
     
     it("Prueba entre vacas y toros juntos usando letras",()=>{
         cowsAndBullsObj.saveSecretCode("1ga4")
-        expect(cowsAndBullsObj.getHintString("2da4")).toEqual("!!");
+        expect(cowsAndBullsObj.getHintString("2da4")).toEqual("!!#");
     })
     it("Prueba para generar numeros aleatorios con letras",()=>{
         cowsAndBullsObj.setUseLetters(true)
