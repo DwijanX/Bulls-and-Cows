@@ -196,3 +196,18 @@ describe("pruebas para guardar lista de codigos anteriormente puestos",()=>{
         expect(cowsAndBullsObj.getCodeHistory()).toEqual("intentos: 1111, 2222, 3333");
     })
 })
+
+describe("Pruebas de respuesta al iniciar juego",()=>{
+    let cowsAndBullsObj;
+    beforeEach(()=>{
+        cowsAndBullsObj=new CowsAndBulls()
+        cowsAndBullsObj.saveSecretCode(1425)
+    })
+    it("Prueba si se muestran bisontes",()=>{
+        expect(cowsAndBullsObj.getBisonteCharacters()).toEqual("%%");
+    })
+    it("Prueba si se muestran bisontes 2",()=>{
+        cowsAndBullsObj.saveSecretCode(1357)
+        expect(cowsAndBullsObj.getBisonteCharacters()).toEqual("%%%");
+    })
+})

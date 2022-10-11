@@ -166,5 +166,26 @@ class CowsAndBulls
       }
       return terneraCharacters
      }
+     getBisonteCharacters()
+     {
+      let secretCodeString=String(this.secretCode);
+      let BisonteCharacters=""
+      for(let index=0;index<secretCodeString.length;index++)
+      {
+         let numSecretCode = parseInt(secretCodeString[index])
+         if (isPrime(numSecretCode))
+         {
+            BisonteCharacters+="%"
+         }
+      }
+      return BisonteCharacters
+     }
 }
+
+const isPrime = num => {
+   for(let i = 2, s = Math.sqrt(num); i <= s; i++)
+       if(num % i === 0) return false; 
+   return num > 1;
+}
+
 export default CowsAndBulls
