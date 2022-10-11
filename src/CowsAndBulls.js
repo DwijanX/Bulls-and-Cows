@@ -40,22 +40,25 @@ class CowsAndBulls
          }
          return cowsCharacters
      }
+     #determineIfNumberIsPrime(number)
+     {
+      for(let i=2;i<number;i++)
+      {
+         if(number%i==0)
+         {
+            return false
+         }
+      }
+      return true
+     }
      getBisontesCharacters(code)
      {
          let answerString=""
          for(let index=0;index<code.length;index++)
          {
             let intCharacter=parseInt(code[index])
-            let numberIsPrime=true
-            for(let i=2;i<intCharacter;i++)
-            {
-               if(intCharacter%i==0)
-               {
-                  numberIsPrime =false
-                  break
-               }
-            }
-            if (intCharacter!=1 && numberIsPrime)
+            
+            if (intCharacter!=1 && this.#determineIfNumberIsPrime(intCharacter))
             {
                answerString+="%"
             }
