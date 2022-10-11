@@ -69,7 +69,12 @@ describe("Pruebas de respuesta tras adivinar",()=>{
     })
 
     it("Prueba de ternera con un numero mayor",()=>{
-        expect(cowsAndBullsObj.getTerneraCharacters(3888)).toEqual("#");
+        cowsAndBullsObj.saveSecretCode(1116)
+        expect(cowsAndBullsObj.getTerneraCharacters(4447)).toEqual("#");
+    })
+    it("Prueba de ternera con un numero menor",()=>{
+        cowsAndBullsObj.saveSecretCode(1116)
+        expect(cowsAndBullsObj.getTerneraCharacters(4445)).toEqual("#");
     })
 })
 
