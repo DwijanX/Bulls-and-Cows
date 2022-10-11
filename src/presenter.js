@@ -62,7 +62,8 @@ saveButton.addEventListener("click", (event) => {
     gameController.setLifesIfValueIsValid(lifes.value)
     gameController.updateLifesHTML(LifesValue)
     gameController.fillHTMLObjwithHistory(codesAlreadyWritten)
-    Bisontes.innerHTML=gameController.getGameObject().getBisontesCharacters(codeNumber)
+    let bisontesStr=String("bisontes: "+gameController.getGameObject().getBisontesCharacters(codeNumber))
+    Bisontes.innerHTML=bisontesStr
   })
 
   guessButton.addEventListener("click",(event)=>{
