@@ -17,7 +17,7 @@ class CowsAndBullsController
         console.log(guessedCode);
         if(this.gameObject.guessSecretCode(guessedCode)==false)//returns true if code is correct
         {
-            AnswerHTML = "<p>el codigo que ingreso no es el correcto</p>"
+            AnswerHTML = "<p>El codigo que ingreso no es el correcto</p>"
             AnswerHTML+= "<p>Pista obtenida:"+ this.gameObject.getHintString(guessedCode)+"</p>"
             if( this.gameObject.getLifesRemaining()<=0)
             {
@@ -27,7 +27,7 @@ class CowsAndBullsController
         }
         else
         {
-            AnswerHTML+= "<p>lo lograste!, el codigo que ingresaste es el correcto<p>"
+            AnswerHTML+= "<p>Lo lograste!!!, el codigo que ingresaste es el correcto<p>"
             guessButton.style.display="none"
             this.#setRestartButtonVisible()
 

@@ -47,7 +47,7 @@ saveButton.addEventListener("click", (event) => {
   
     const codeNumber = String(code.value);
     codeLengthInput.style.display="none"
-    codeString.innerHTML = "<p>la clave secreta es: "+codeNumber + ", estas listo para empezar?" + "</p>";
+    codeString.innerHTML = "<p>La clave secreta es: "+codeNumber + ", estas listo para empezar?" + "</p>";
     codeString.style.display="inline"
     startButton.style.display = 'inline';
   });
