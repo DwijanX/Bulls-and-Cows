@@ -46,7 +46,16 @@ class CowsAndBulls
          for(let index=0;index<code.length;index++)
          {
             let intCharacter=parseInt(code[index])
-            if (intCharacter!=1)
+            let numberIsPrime=true
+            for(let i=2;i<intCharacter;i++)
+            {
+               if(intCharacter%i==0)
+               {
+                  numberIsPrime =false
+                  break
+               }
+            }
+            if (intCharacter!=1 && numberIsPrime)
             {
                answerString+="%"
             }
