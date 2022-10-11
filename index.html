@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cows and Bulls</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="stars.css">
 </head>
 <body>
   <h1>Toros y vacas: V1.0.0</h1>
@@ -21,27 +22,33 @@
     <label class="SecretCodeInputClass" for="lifes">cantidad de vidas (por defecto 8)</label>
     <input class="SecretCodeInputClass" type="number" id="lifes" />
 
-  <section>
+  <section id="secretCodeInput">
     <label class="SecretCodeInputClass" for="code">ingresa el codigo secreto</label>
     <input class="SecretCodeInputClass inputCodeField" type="number" id="code" />
     <button class="SecretCodeInputClass" id="saveButton">guardar</button>
+    <br>
     <div class="SecretCodeInputClass" id="codeString"></div>
     <button class="SecretCodeInputClass" id="startButton" style="display: none;">Start</button>
   </section>
   
-  <section>
+  <section class="guess">
     <p class="itemsToGuessCode" id="Lifes">Vidas Restantes:<span id="LifesValue"></span></p>
     <label class="itemsToGuessCode" for="code">ingresa tu intento de adivinar</label>
     <input class="itemsToGuessCode inputCodeField" type="number" id="codeTry" />
     <button class="itemsToGuessCode" id="guessButton">Adivinar</button>
     <div class="itemsToGuessCode" id="guessString"></div>
   </section>
-  <section>
+  <section class="guess">
     <div class="itemsToGuessCode" id="codesAlreadyWritten"></div>
   </section>
   <button  id="playAgainButton">Play Again</button>
 
-  
+    <section class="wrapper">
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
+      </div>
+  </section>
 
   <script type="module" src="./src/presenter.js"></script>
 

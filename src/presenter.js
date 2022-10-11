@@ -48,8 +48,8 @@ saveButton.addEventListener("click", (event) => {
     const codeNumber = String(code.value);
     codeLengthInput.style.display="none"
     codeString.innerHTML = "<p>la clave secreta es: "+codeNumber + ", estas listo para empezar?" + "</p>";
-    codeString.style.display="flex"
-    startButton.style.display = 'flex';
+    codeString.style.display="inline"
+    startButton.style.display = 'inline';
   });
   
   startButton.addEventListener("click",(event)=>{
@@ -103,7 +103,7 @@ saveButton.addEventListener("click", (event) => {
   playAgainButton.addEventListener("click",(e)=>{
     e.preventDefault();
     gameController.restartGameObject()
-    changeItemsDisplay(SecretCodeInputClass,"flex")
+    changeItemsDisplay(SecretCodeInputClass,"inline")
     changeItemsDisplay(itemsToGuessCode,"none")
     codeString.style.display="none"
     startButton.style.display="none"
