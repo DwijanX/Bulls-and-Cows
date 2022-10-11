@@ -194,4 +194,9 @@ describe("Probando caracteres de bisontes y terneras",()=>{
     it("probando bisontes con otros numeros primos y no primos",()=>{
         expect(cowsAndBullsObj.getBisontesCharacters("5438")).toEqual("%%");
     })
+    it("probando terneras con un codigo secreto menos 1",()=>{
+        cowsAndBullsObj.saveSecretCode("2")
+        expect(cowsAndBullsObj.getTerneraCharacters("1")).toEqual("#");
+    })
+    
 })

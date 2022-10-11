@@ -1,3 +1,5 @@
+import { parse } from "@babel/core"
+
 const valuesToGenerateSecretCode=['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
 class CowsAndBulls
@@ -65,7 +67,14 @@ class CowsAndBulls
          }
          return answerString
      }
-
+     getTerneraCharacters(code)
+     {
+      let intSecretCode=parseInt(this.secretCode)
+      let intCharacter=parseInt(code)
+      if(intSecretCode-1==intCharacter)
+         return "#"
+      return ""
+     }
      setCodeLength(length)
      {
       this.codeLength=length
