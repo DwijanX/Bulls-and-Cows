@@ -69,11 +69,15 @@ class CowsAndBulls
      }
      getTerneraCharacters(code)
      {
-      let intSecretCode=parseInt(this.secretCode)
-      let intCharacter=parseInt(code)
-      if(intSecretCode-1==intCharacter || intSecretCode+1==intCharacter)
-         return "#"
-      return ""
+      let answerString=""
+      for(let index=0;index<this.codeLength;index++)
+      {
+         let intSecretCodeCharacter=parseInt(this.secretCode[index])
+         let intGuessedCodeCharacter=parseInt(code[index])
+         if(intSecretCodeCharacter-1==intGuessedCodeCharacter || intSecretCodeCharacter+1==intGuessedCodeCharacter)
+            answerString+="#"
+      }
+      return answerString
      }
      setCodeLength(length)
      {
