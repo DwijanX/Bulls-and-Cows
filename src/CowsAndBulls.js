@@ -11,6 +11,7 @@ class CowsAndBulls
         this.useLetters=false
         this.codeSet = new Set()
      }
+
      getCowCharacters(code)
      {
       let guessingCodeString=String(code)
@@ -26,6 +27,7 @@ class CowsAndBulls
       }
       return cowsCharacters
      }
+
      getBullCharacters(code)
      {
          let guessingCodeString=String(code)
@@ -143,6 +145,22 @@ class CowsAndBulls
          randomSecretCode+=valuesToGenerateSecretCode[randomIndex]
       }
       this.secretCode=randomSecretCode
+     }
+
+     getTerneraCharacters(code)
+     {
+      let guessingCodeString=String(code)
+      let secretCodeString=String(this.secretCode);
+      let terneraCharacters=""
+      for(let index=0;index<guessingCodeString.length;index++)
+      {
+         let numGuessingCodeString = parseInt(guessingCodeString[index]) - 1
+         if(secretCodeString.includes(numGuessingCodeString.toString()))
+         {
+               terneraCharacters+="#"
+         }
+      }
+      return terneraCharacters
      }
 }
 export default CowsAndBulls
