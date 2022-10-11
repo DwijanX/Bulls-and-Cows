@@ -21,6 +21,7 @@ const gameController=new CowsAndBullsController(playAgainButton)
 let codeString = document.querySelector("#codeString");
 let guessString = document.querySelector("#guessString");
 let codesAlreadyWritten = document.querySelector("#codesAlreadyWritten");
+let bisonteString = document.querySelector("#bisonteString");
 
 inputsArray.forEach((input)=>{
   input.addEventListener("input",(event)=>{
@@ -62,6 +63,7 @@ saveButton.addEventListener("click", (event) => {
     gameController.setLifesIfValueIsValid(lifes.value)
     gameController.updateLifesHTML(LifesValue)
     gameController.fillHTMLObjwithHistory(codesAlreadyWritten)
+    bisonteString.innerHTML = gameController.getBisonteValue()
   })
 
   guessButton.addEventListener("click",(event)=>{
@@ -83,7 +85,7 @@ saveButton.addEventListener("click", (event) => {
     gameController.setLifesIfValueIsValid(lifes.value)
     gameController.updateLifesHTML(LifesValue)
     gameController.fillHTMLObjwithHistory(codesAlreadyWritten)
-
+    bisonteString.innerHTML = gameController.getBisonteValue()
   })
   
   codeLengthInput.addEventListener("change",(event)=>{

@@ -210,4 +210,8 @@ describe("Pruebas de respuesta al iniciar juego",()=>{
         cowsAndBullsObj.saveSecretCode(1357)
         expect(cowsAndBullsObj.getBisonteCharacters()).toEqual("%%%");
     })
+    it("Prueba si no aparecen bisontes",()=>{
+        cowsAndBullsObj.saveSecretCode(4444)
+        expect(cowsAndBullsObj.getBisonteCharacters()).toEqual("");
+    })
 })
