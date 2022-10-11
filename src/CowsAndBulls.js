@@ -42,12 +42,16 @@ class CowsAndBulls
      }
      getBisontesCharacters(code)
      {
-         let intCharacter=parseInt(code)
-         if(code!=1)
+         let answerString=""
+         for(let index=0;index<code.length;index++)
          {
-            return "%"
+            let intCharacter=parseInt(code[index])
+            if (intCharacter!=1)
+            {
+               answerString+="%"
+            }
          }
-         return ""
+         return answerString
      }
 
      setCodeLength(length)

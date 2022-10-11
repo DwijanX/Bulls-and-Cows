@@ -188,4 +188,7 @@ describe("Probando caracteres de bisontes y terneras",()=>{
     it("probando bisontes con el 1",()=>{
         expect(cowsAndBullsObj.getBisontesCharacters("1")).toEqual("");
     })
+    it("probando bisontes con el 1 y el 2 en el mismo codigo",()=>{
+        expect(cowsAndBullsObj.getBisontesCharacters("12")).toEqual("%");
+    })
 })
