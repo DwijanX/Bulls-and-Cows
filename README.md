@@ -12,3 +12,6 @@ npm test
 
 Ejecutar pruebas de unidad solo una vez:
 npm run test-once
+
+#### pagina web de la app deployada
+https://sparkly-alpaca-470bf3.netlify.app/
