@@ -148,13 +148,16 @@ class CowsAndBulls
      getTerneraCharacters(code)
      {
          let secretCode = this.secretCode;
-         if((parseInt(code) - 1) == secretCode || (parseInt(code) + 1) == secretCode)
+         let guessingCodeString=String(code)
+         let terneraCharacters=""
+         for(let index=0;index<guessingCodeString.length;index++)
          {
-            return "#"
+            if((parseInt(guessingCodeString[index]) - 1) == secretCode || (parseInt(guessingCodeString[index])  + 1) == secretCode)
+            {
+               terneraCharacters+="#"
+            }
          }
-         else{
-            return ""
-         }
+         return terneraCharacters
      }
 }
 export default CowsAndBulls

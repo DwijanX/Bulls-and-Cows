@@ -201,4 +201,8 @@ describe("pruebas de codigo con ternera",()=>{
         cowsAndBullsObj.saveSecretCode("3")
         expect(cowsAndBullsObj.getTerneraCharacters('2')).toEqual("#");
     })
+    it("devuelve # con una cadena de numeros",()=>{
+        cowsAndBullsObj.saveSecretCode("3")
+        expect(cowsAndBullsObj.getTerneraCharacters('345')).toEqual("##");
+    })
 })
