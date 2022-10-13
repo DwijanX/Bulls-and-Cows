@@ -167,10 +167,18 @@ class CowsAndBulls
 
      getBisonteCharacters()
      {
-      let secretCode = this.secretCode
-            for(let i = 2, s = Math.sqrt(secretCode); i <= s; i++)
-            if(secretCode % i === 0) return ""; 
-         return "%";
+         if(isPrime(this.secretCode))
+         {
+            return "%"
+         }
+         return ""
      }
 }
+
+const isPrime = num => {
+   for(let i = 2, s = Math.sqrt(num); i <= s; i++)
+       if(num % i === 0) return false; 
+   return num > 1;
+}
+
 export default CowsAndBulls
