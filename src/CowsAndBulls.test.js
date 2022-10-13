@@ -214,4 +214,12 @@ describe("pruebas de bisontes",()=>{
         cowsAndBullsObj.saveSecretCode("1")
         expect(cowsAndBullsObj.getBisonCharacters()).toEqual("");
     })
+    it("bisonte para el numero 4",()=>{
+        cowsAndBullsObj.saveSecretCode("4")
+        expect(cowsAndBullsObj.getBisonCharacters()).toEqual("");
+    })
+    it("bisonte para el numero 5",()=>{
+        cowsAndBullsObj.saveSecretCode("5")
+        expect(cowsAndBullsObj.getBisonCharacters()).toEqual("%");
+    })
 })

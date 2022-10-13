@@ -54,9 +54,24 @@ class CowsAndBulls
       }
       return answer
      }
+     #evaluateIfNumberIsPrime(number)
+     {
+      if(number==1)
+      {
+         return false
+      }
+      for(let Divisor=2;Divisor<number;Divisor++)
+      {
+         if(number%Divisor==0)
+         {
+            return false
+         }
+      }
+      return true
+     }
      getBisonCharacters()
      {
-      if (this.secretCode!=1)
+      if (this.#evaluateIfNumberIsPrime(this.secretCode))
          return "%"
       return ""
      }
