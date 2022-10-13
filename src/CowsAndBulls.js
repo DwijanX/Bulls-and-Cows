@@ -125,7 +125,8 @@ class CowsAndBulls
      {
          let bullChar = this.getBullCharacters(code)
          let cowChar = this.getCowCharacters(code)
-         return bullChar +  cowChar.substring(bullChar.length)
+         let terneraChar = this.getTerneraCharacters(code)
+         return bullChar +  cowChar.substring(bullChar.length) + terneraChar
      }
      
 

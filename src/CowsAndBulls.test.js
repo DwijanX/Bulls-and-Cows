@@ -61,11 +61,11 @@ describe("Pruebas de respuesta tras adivinar",()=>{
     })
     it("Prueba entre vacas y toros juntos",()=>{
         cowsAndBullsObj.saveSecretCode(1324)
-        expect(cowsAndBullsObj.getHintString(1623)).toEqual("!!*");
+        expect(cowsAndBullsObj.getHintString(1623)).toEqual("!!*###");
     })
     it("Prueba entre vacas y toros juntos 2",()=>{
         cowsAndBullsObj.saveSecretCode(1325)
-        expect(cowsAndBullsObj.getHintString(7115)).toEqual("!*");
+        expect(cowsAndBullsObj.getHintString(7115)).toEqual("!*##");
     })
 })
 
@@ -141,7 +141,7 @@ describe("pruebas usando un codigo que contiene letras",()=>{
     
     it("Prueba entre vacas y toros juntos usando letras",()=>{
         cowsAndBullsObj.saveSecretCode("1ga4")
-        expect(cowsAndBullsObj.getHintString("2da4")).toEqual("!!");
+        expect(cowsAndBullsObj.getHintString("2da4")).toEqual("!!#");
     })
     it("Prueba para generar numeros aleatorios con letras",()=>{
         cowsAndBullsObj.setUseLetters(true)
@@ -212,5 +212,9 @@ describe("pruebas de codigo con ternera",()=>{
     it("devuelve # con una cadena de numeros con un codigo de muchos numeros",()=>{
         cowsAndBullsObj.saveSecretCode("34")
         expect(cowsAndBullsObj.getTerneraCharacters('234')).toEqual("###");
+    })
+    it("devuelve # en nuestra cadena con toros y vacas",()=>{
+        cowsAndBullsObj.saveSecretCode("1792")
+        expect(cowsAndBullsObj.getHintString(1623)).toEqual("!*####");
     })
 })
