@@ -42,7 +42,9 @@ class CowsAndBulls
      }
      getVealCharacters(code)
      {
-      if(code-this.secretCode==1 || this.secretCode-code==1)
+      let numericCode=parseInt(code)
+      let numericSecretCode=parseInt(this.secretCode)
+      if(Math.abs(numericCode-numericSecretCode)==1 )
       {
          return "#"
       }
