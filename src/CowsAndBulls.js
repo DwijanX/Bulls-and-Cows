@@ -56,7 +56,9 @@ class CowsAndBulls
      }
      getBisonCharacters()
      {
-      return "%"
+      if (this.secretCode!=1)
+         return "%"
+      return ""
      }
      setCodeLength(length)
      {

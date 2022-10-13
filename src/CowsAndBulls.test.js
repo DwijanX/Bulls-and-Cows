@@ -210,4 +210,8 @@ describe("pruebas de bisontes",()=>{
         cowsAndBullsObj.saveSecretCode("3")
         expect(cowsAndBullsObj.getBisonCharacters()).toEqual("%");
     })
+    it("bisonte para el numero 1",()=>{
+        cowsAndBullsObj.saveSecretCode("1")
+        expect(cowsAndBullsObj.getBisonCharacters()).toEqual("");
+    })
 })
