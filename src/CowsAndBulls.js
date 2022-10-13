@@ -164,5 +164,10 @@ class CowsAndBulls
       }
       return terneraCharacters
      }
+
+     getBisonteCharacters()
+     {
+      return "%"
+     }
 }
 export default CowsAndBulls

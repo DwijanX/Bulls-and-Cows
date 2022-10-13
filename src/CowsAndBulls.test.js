@@ -218,3 +218,14 @@ describe("pruebas de codigo con ternera",()=>{
         expect(cowsAndBullsObj.getHintString(1623)).toEqual("!*####");
     })
 })
+
+describe("pruebas de codigo con ternera",()=>{
+    let cowsAndBullsObj;
+    beforeEach(()=>{
+        cowsAndBullsObj=new CowsAndBulls()
+    })
+    it("devuelve % con un numero",()=>{
+        cowsAndBullsObj.saveSecretCode("4")
+        expect(cowsAndBullsObj.getBisonteCharacters()).toEqual("%");
+    })
+})
