@@ -168,8 +168,9 @@ class CowsAndBulls
      getBisonteCharacters()
      {
       let secretCode = this.secretCode
-      if(secretCode % 2 === 0 || secretCode % 3 === 0) return "%"; 
-      return ""
+            for(let i = 2, s = Math.sqrt(secretCode); i <= s; i++)
+            if(secretCode % i === 0) return ""; 
+         return "%";
      }
 }
 export default CowsAndBulls
