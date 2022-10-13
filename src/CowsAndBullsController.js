@@ -57,5 +57,9 @@ class CowsAndBullsController
     {
         this.gameObject=new CowsAndBulls()
     }
+    getBisonteValue()
+    {
+        return "pista de bisontes: " + this.gameObject.getBisonteCharacters()
+    }
 }
 export default CowsAndBullsController
