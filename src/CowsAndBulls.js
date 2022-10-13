@@ -43,7 +43,7 @@ class CowsAndBulls
      getVealCharacters(code)
      {
       let answer=""
-      for(let i=0;i<this.codeLength;i++)
+      for(let i=0;i<this.secretCode.length;i++)
       {
          let numericCodeI=parseInt(code[i])
          let numericSecretCodeI=parseInt(this.secretCode[i])
@@ -71,9 +71,14 @@ class CowsAndBulls
      }
      getBisonCharacters()
      {
-      if (this.#evaluateIfNumberIsPrime(this.secretCode))
-         return "%"
-      return ""
+      let answer=""
+      for(let index=0;index<this.secretCode.length;index++)
+      {
+         let numericSecretCodeI=this.secretCode[index]
+         if (this.#evaluateIfNumberIsPrime(numericSecretCodeI))
+            answer+= "%"
+      }
+      return answer
      }
      setCodeLength(length)
      {
