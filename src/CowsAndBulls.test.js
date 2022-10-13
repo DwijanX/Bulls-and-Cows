@@ -244,4 +244,8 @@ describe("pruebas de codigo con ternera",()=>{
         cowsAndBullsObj.saveSecretCode("67")
         expect(cowsAndBullsObj.getBisonteCharacters()).toEqual("%");
     })
+    it("devuelve % con cualquier primo",()=>{
+        cowsAndBullsObj.saveSecretCode("2379")
+        expect(cowsAndBullsObj.getBisonteCharacters()).toEqual("%%%");
+    })
 })

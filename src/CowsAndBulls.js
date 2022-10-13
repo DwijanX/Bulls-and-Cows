@@ -167,11 +167,17 @@ class CowsAndBulls
 
      getBisonteCharacters()
      {
-         if(isPrime(this.secretCode))
+         let secretCodeString=String(this.secretCode);
+         let BisonteCharacters=""
+         for(let index=0;index<secretCodeString.length;index++)
          {
-            return "%"
+            let numSecretCode = parseInt(secretCodeString[index])
+            if (isPrime(numSecretCode))
+            {
+               BisonteCharacters+="%"
+            }
          }
-         return ""
+         return BisonteCharacters
      }
 }
 
