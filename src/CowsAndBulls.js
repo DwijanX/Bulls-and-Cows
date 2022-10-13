@@ -147,17 +147,21 @@ class CowsAndBulls
 
      getTerneraCharacters(code)
      {
-         let guessingCodeString=String(code)
-         let secretCodeString=String(this.secretCode);
-         let terneraCharacters=""
-         for(let index=0;index<guessingCodeString.length;index++)
+      let guessingCodeString=String(code)
+      let secretCodeString=String(this.secretCode);
+      let terneraCharacters=""
+      for(let index=0;index<guessingCodeString.length;index++)
+      {
+         let terneraConditions = []
+         terneraConditions[0] = parseInt(guessingCodeString[index]) - 1
+         terneraConditions[1] = parseInt(guessingCodeString[index]) + 1
+
+         if(terneraConditions.some(numMenorOMayorPor1 => secretCodeString.includes(numMenorOMayorPor1)))
          {
-            if((secretCodeString.includes(parseInt(guessingCodeString[index]) - 1)) || (secretCodeString.includes(parseInt(guessingCodeString[index]) + 1)))
-            {
                terneraCharacters+="#"
-            }
          }
-         return terneraCharacters
+      }
+      return terneraCharacters
      }
 }
 export default CowsAndBulls
