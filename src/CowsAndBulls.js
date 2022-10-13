@@ -42,7 +42,11 @@ class CowsAndBulls
      }
      getVealCharacters(code)
      {
-      return "#"
+      if(code-this.secretCode==1)
+      {
+         return "#"
+      }
+      return ""
      }
      setCodeLength(length)
      {
