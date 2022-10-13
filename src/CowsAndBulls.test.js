@@ -233,7 +233,11 @@ describe("pruebas de codigo con ternera",()=>{
         expect(cowsAndBullsObj.getBisonteCharacters()).toEqual("%");
     })
     it("devuelve vacio si no es 2",()=>{
-        cowsAndBullsObj.saveSecretCode("3")
+        cowsAndBullsObj.saveSecretCode("7")
         expect(cowsAndBullsObj.getBisonteCharacters()).toEqual("");
+    })
+    it("devuelve % con numero primo 3",()=>{
+        cowsAndBullsObj.saveSecretCode("3")
+        expect(cowsAndBullsObj.getBisonteCharacters()).toEqual("%");
     })
 })
