@@ -144,5 +144,10 @@ class CowsAndBulls
       }
       this.secretCode=randomSecretCode
      }
+
+     getTerneraCharacters(code)
+     {
+         return "#"
+     }
 }
 export default CowsAndBulls

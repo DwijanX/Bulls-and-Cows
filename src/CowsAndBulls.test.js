@@ -179,3 +179,13 @@ describe("pruebas para guardar lista de codigos anteriormente puestos",()=>{
         expect(cowsAndBullsObj.getCodeHistory()).toEqual("intentos: 1111, 2222, 3333");
     })
 })
+
+describe("pruebas de codigo con ternera",()=>{
+    let cowsAndBullsObj;
+    beforeEach(()=>{
+        cowsAndBullsObj=new CowsAndBulls()
+    })
+    it("devuelve # con un numero",()=>{
+        expect(cowsAndBullsObj.getTerneraCharacters('3')).toEqual("#");
+    })
+})
