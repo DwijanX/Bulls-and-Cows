@@ -225,7 +225,15 @@ describe("pruebas de codigo con ternera",()=>{
         cowsAndBullsObj=new CowsAndBulls()
     })
     it("devuelve % con un numero",()=>{
-        cowsAndBullsObj.saveSecretCode("4")
+        cowsAndBullsObj.saveSecretCode("2")
         expect(cowsAndBullsObj.getBisonteCharacters()).toEqual("%");
+    })
+    it("devuelve % con numero primo 2",()=>{
+        cowsAndBullsObj.saveSecretCode("2")
+        expect(cowsAndBullsObj.getBisonteCharacters()).toEqual("%");
+    })
+    it("devuelve vacio si no es 2",()=>{
+        cowsAndBullsObj.saveSecretCode("3")
+        expect(cowsAndBullsObj.getBisonteCharacters()).toEqual("");
     })
 })
