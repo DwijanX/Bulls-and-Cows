@@ -196,4 +196,8 @@ describe("pruebas de terneras",()=>{
         cowsAndBullsObj.saveSecretCode("2")
         expect(cowsAndBullsObj.getVealCharacters("1")).toEqual("#");
     })
+    it("ternera soporta varios numeros",()=>{
+        cowsAndBullsObj.saveSecretCode("232")
+        expect(cowsAndBullsObj.getVealCharacters("143")).toEqual("###");
+    })
 })
