@@ -14,6 +14,7 @@ const AIButton = document.querySelector("#AIButton")
 const lettersCheckBox = document.querySelector("#lettersCheckBox")
 const lifes = document.querySelector("#lifes")
 const playAgainButton = document.querySelector("#playAgainButton")
+const bisons = document.querySelector("#bisons")
 
 
 const gameController=new CowsAndBullsController(playAgainButton)
@@ -62,6 +63,8 @@ saveButton.addEventListener("click", (event) => {
     gameController.setLifesIfValueIsValid(lifes.value)
     gameController.updateLifesHTML(LifesValue)
     gameController.fillHTMLObjwithHistory(codesAlreadyWritten)
+    
+    bisons.innerHTML="<p>"+gameController.gameObject.getBisonCharacters()+"</p>"
   })
 
   guessButton.addEventListener("click",(event)=>{
@@ -110,6 +113,7 @@ saveButton.addEventListener("click", (event) => {
     playAgainButton.style.display="none"
     guessString.innerHTML=""
     codesAlreadyWritten.innerHTML=""
+    bisons.innerHTML=""
     inputsArray.forEach((input)=>{
       input.value=""
     })
