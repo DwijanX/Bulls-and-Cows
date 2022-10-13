@@ -197,4 +197,8 @@ describe("pruebas de codigo con ternera",()=>{
         cowsAndBullsObj.saveSecretCode("3")
         expect(cowsAndBullsObj.getTerneraCharacters('')).toEqual("");
     })
+    it("devuelve # con un numero menor por 1",()=>{
+        cowsAndBullsObj.saveSecretCode("3")
+        expect(cowsAndBullsObj.getTerneraCharacters('2')).toEqual("#");
+    })
 })

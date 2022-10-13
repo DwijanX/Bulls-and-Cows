@@ -147,8 +147,8 @@ class CowsAndBulls
 
      getTerneraCharacters(code)
      {
-      let secretCodeString=String(this.secretCode);
-         if(code - 1 == secretCodeString)
+         let secretCode = this.secretCode;
+         if((parseInt(code) - 1) == secretCode || (parseInt(code) + 1) == secretCode)
          {
             return "#"
          }
