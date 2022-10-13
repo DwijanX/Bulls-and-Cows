@@ -147,12 +147,12 @@ class CowsAndBulls
 
      getTerneraCharacters(code)
      {
-         let secretCode = this.secretCode;
          let guessingCodeString=String(code)
+         let secretCodeString=String(this.secretCode);
          let terneraCharacters=""
          for(let index=0;index<guessingCodeString.length;index++)
          {
-            if((parseInt(guessingCodeString[index]) - 1) == secretCode || (parseInt(guessingCodeString[index])  + 1) == secretCode)
+            if((secretCodeString.includes(parseInt(guessingCodeString[index]) - 1)) || (secretCodeString.includes(parseInt(guessingCodeString[index]) + 1)))
             {
                terneraCharacters+="#"
             }
