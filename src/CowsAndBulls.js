@@ -40,7 +40,10 @@ class CowsAndBulls
          }
          return cowsCharacters
      }
-
+     getVealCharacters(code)
+     {
+      return "#"
+     }
      setCodeLength(length)
      {
       this.codeLength=length
