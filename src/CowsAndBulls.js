@@ -42,7 +42,7 @@ class CowsAndBulls
      }
      getVealCharacters(code)
      {
-      if(code-this.secretCode==1)
+      if(code-this.secretCode==1 || this.secretCode-code==1)
       {
          return "#"
       }
