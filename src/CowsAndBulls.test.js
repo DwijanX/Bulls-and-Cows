@@ -201,3 +201,13 @@ describe("pruebas de terneras",()=>{
         expect(cowsAndBullsObj.getVealCharacters("143")).toEqual("###");
     })
 })
+describe("pruebas de bisontes",()=>{
+    let cowsAndBullsObj;
+    beforeEach(()=>{
+        cowsAndBullsObj=new CowsAndBulls()
+    })
+    it("bisonte para un numero",()=>{
+        cowsAndBullsObj.saveSecretCode("3")
+        expect(cowsAndBullsObj.getBisonCharacters()).toEqual("%");
+    })
+})

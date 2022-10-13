@@ -54,6 +54,10 @@ class CowsAndBulls
       }
       return answer
      }
+     getBisonCharacters()
+     {
+      return "%"
+     }
      setCodeLength(length)
      {
       this.codeLength=length
