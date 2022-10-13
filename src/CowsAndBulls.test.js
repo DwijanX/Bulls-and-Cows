@@ -203,6 +203,10 @@ describe("pruebas de codigo con ternera",()=>{
     })
     it("devuelve # con una cadena de numeros",()=>{
         cowsAndBullsObj.saveSecretCode("3")
-        expect(cowsAndBullsObj.getTerneraCharacters('345')).toEqual("##");
+        expect(cowsAndBullsObj.getTerneraCharacters('345')).toEqual("#");
+    })
+    it("devuelve # con una cadena de numeros",()=>{
+        cowsAndBullsObj.saveSecretCode("3")
+        expect(cowsAndBullsObj.getTerneraCharacters('234')).toEqual("##");
     })
 })
