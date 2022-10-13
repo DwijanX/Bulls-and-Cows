@@ -147,7 +147,14 @@ class CowsAndBulls
 
      getTerneraCharacters(code)
      {
-         return "#"
+      let secretCodeString=String(this.secretCode);
+         if(code - 1 == secretCodeString)
+         {
+            return "#"
+         }
+         else{
+            return ""
+         }
      }
 }
 export default CowsAndBulls

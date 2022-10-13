@@ -186,6 +186,15 @@ describe("pruebas de codigo con ternera",()=>{
         cowsAndBullsObj=new CowsAndBulls()
     })
     it("devuelve # con un numero",()=>{
+        cowsAndBullsObj.saveSecretCode("4")
+        expect(cowsAndBullsObj.getTerneraCharacters('5')).toEqual("#");
+    })
+    it("devuelve # con un numero mayor por 1",()=>{
+        cowsAndBullsObj.saveSecretCode("2")
         expect(cowsAndBullsObj.getTerneraCharacters('3')).toEqual("#");
+    })
+    it("devuelve nada si no hay numero",()=>{
+        cowsAndBullsObj.saveSecretCode("3")
+        expect(cowsAndBullsObj.getTerneraCharacters('')).toEqual("");
     })
 })
